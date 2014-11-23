@@ -1,5 +1,7 @@
 import java.awt.Image;
 
+import javax.swing.ImageIcon;
+
 
 public class Movie {
 	private String title;
@@ -85,6 +87,12 @@ public class Movie {
 	}
 	public void setDulation(Time dulation) {
 		this.dulation = dulation;
+	}
+	public ImageIcon getImageIcon(){
+		return new ImageIcon(image);
+	}
+	public Movie(){
+		
 	}
 	public Movie(String title, double rating, String summery, int rate,
 			Image image, String detail, String genres, Day releaseDay,
