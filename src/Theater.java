@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class Theater {
-private int[] numberOfTypeOfSeat;
+private int numberOfTypeOfSeat;
 private int[]	numbeOfRow;
 private int numberOfColumn;
 //[]=type of seat 
@@ -25,15 +25,21 @@ private int numberOfColumn;
 //		dimentionOfTheSeatAndNumBerOfSeat[2][1]=1;
 
 	private double[] price;
-
-	Theater(int[] numberOfRow,int numberOfColumnint,int[] numberOfTypeOfSeat, double[] price){
+	private String[] typeOfSeat;
+	Theater(int[] numberOfRow,int numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat){
 	this.numbeOfRow=numberOfRow;
-	this.numberOfColumn = numberOfColumn;
+	this.numberOfColumn =numberOfColumn;
 	this.numberOfTypeOfSeat =  numberOfTypeOfSeat;
+	this.typeOfSeat = typeOfSeat;
 		this.price = price;
 	}
-
-	public int[] numbeOfRow() {
+	public  String[]	 getTypeOfSeat(){
+		return typeOfSeat;
+	}
+public int getNumberOfTypeOfSeat(){
+	return numberOfTypeOfSeat;
+}
+	public int[] getNumbeOfRow() {
 		return numbeOfRow;
 	}
 	public int getNumberOfColumn(){
