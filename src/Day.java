@@ -3,7 +3,10 @@ public class Day {
 	private int day;
 	private int month;
 	private int year;
+<<<<<<< HEAD
 //ddsdsd
+=======
+>>>>>>> parent of b1f02b9... Revert "a"
 	Day(int day,int month,int year){
 		this.day=day;
 		this.month=month;
