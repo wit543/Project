@@ -1,5 +1,5 @@
 public class Day {
-//Gun is noob
+
 	private int day;
 	private int month;
 	private int year;
