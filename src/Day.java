@@ -3,6 +3,7 @@ public class Day {
 	private int day;
 	private int month;
 	private int year;
+
 	Day(int day,int month,int year){
 		this.day=day;
 		this.month=month;
