@@ -7,14 +7,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Seat {
-	private  ArrayList<ImageIcon> imageList =new ArrayList()<ImageIcon>();
+	private  ArrayList<ImageIcon[]> imageList =new ArrayList<ImageIcon[]>();
 	private double price;
 	private String type;
 	private int numberOfPersonThatCanSit;
 	Ticket ticket;
 	boolean isBooked;
-	ImageIcon Image_notBook ;
-	ImageIcon Image_Booked ;
+
 	String ID;
 	Seat(String type,double price,String ID){
 		this.type=type;
@@ -27,17 +26,22 @@ public class Seat {
 		else{
 			numberOfPersonThatCanSit=1;
 		}
-		try {
-			Image_notBook  = new ImageIcon( ImageIO.read(new File("")));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		}
-		try {
-			Image_Booked  = new ImageIcon( ImageIO.read(new File("")));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-	//		e.printStackTrace();
+
+		int numberOfType =5;
+		for(int i =0;i<numberOfType;i++){
+			ImageIcon[] array = new ImageIcon[2];
+			try {
+				array[0] = new ImageIcon(ImageIO.read(new File("")));// String examp;e "seatType1_1"
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			try{
+				array[1] = new ImageIcon(ImageIO.read(new File("")));
+			}
+			catch (Exception e){
+				
+			}
+			imageList.add(array);
 		}
 	}
 	public String getID(){
@@ -52,10 +56,18 @@ public class Seat {
 	public String getPriceAndType(){
 		return price+type;
 	}
+	public int convertTypeToInt(String type){
+		if(type.equals("normal")){
+			return 0;
+		}
+		if(type.equals("honeymoon"))
+			return 2;
+		return -1;
+	}
 	public ImageIcon getImageIcon(){
 		if(isBooked)
-			return Image_Booked;
-		return Image_notBook;
+			return imageList.get(convertTypeToInt(type))[0];
+		return imageList.get(convertTypeToInt(type))[1];
 	}
 	
 }

@@ -31,6 +31,7 @@ public class Round {
 		int[] input = convert(row, column);
 		if (seatInEachtype.get(input[0])[input[1]][input[2]].canBook()) {
 			ticketList.add(new Ticket(movie,this,seatInEachtype.get(input[0])[input[1]][input[2]]));
+			seatInEachtype.get(input[0])[input[1]][input[2]].booking();
 			return true;
 		}
 		return false;
