@@ -3,7 +3,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 
-public class Movie {
+public class Movie implements Comparable {
 	private String title;
 	private double rating;
 	private String summery;
@@ -110,6 +110,30 @@ public class Movie {
 		this.synopis = synopis;
 		this.language = language;
 		this.dulation = dulation;
+	}
+	@Override
+	public String toString() {
+		return "Movie [title=" + title + ", rating=" + rating + ", summery="
+				+ summery + ", rate=" + rate + ", image=" + image + ", detail="
+				+ detail + ", genres=" + genres + ", releaseDay=" + releaseDay
+				+ ", Director=" + Director + ", synopis=" + synopis
+				+ ", language=" + language + ", dulation=" + dulation
+				+ ", getTitle()=" + getTitle() + ", getRating()=" + getRating()
+				+ ", getSummery()=" + getSummery() + ", getRate()=" + getRate()
+				+ ", getImage()=" + getImage() + ", getDetail()=" + getDetail()
+				+ ", getGenres()=" + getGenres() + ", getReleaseDay()="
+				+ getReleaseDay() + ", getDirector()=" + getDirector()
+				+ ", getSynopis()=" + getSynopis() + ", getLanguage()="
+				+ getLanguage() + ", getDulation()=" + getDulation()
+				+ ", getImageIcon()=" + getImageIcon() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return title.compareTo(((Movie)o).getTitle());
+
 	}
 	
 }

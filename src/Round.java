@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Round {
+public class Round implements Comparable {
 	private Movie movie;
 	private Day currentDay;
 	private Time start, end;
 	private ArrayList<Seat[][]> seatInEachtype = new ArrayList<Seat[][]>();
 	private ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
 	private String theaterID;
-
+	private Theater theater;
 	// []=row
 	// [][]=column
 
@@ -16,7 +16,8 @@ public class Round {
 		this.start = start;
 		this.end = end;
 		this.movie = movie;
-		this.theaterID = theater.getID();
+		this.theaterID = theater.getID(); 
+		this.theater=theater;
 	}
 
 	public String getTheaterID() {
@@ -127,4 +128,33 @@ public class Round {
 	public void setEnd(Time end) {
 		this.end = end;
 	}
+	public Theater getTheater(){
+		return theater;
+	}
+	public void setTheater(Theater theater){
+		this.theater=theater;
+	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		if(movie.compareTo(((Round) o).getMovie())==0){
+			return theater.compareTo(((Round)o).getTheater());
+		}
+		return movie.compareTo(((Round) o).getMovie());
+	}
+
+	@Override
+	public String toString() {
+		return "Round [movie=" + movie + ", currentDay=" + currentDay
+				+ ", start=" + start + ", end=" + end + ", seatInEachtype="
+				+ seatInEachtype + ", ticketList=" + ticketList
+				+ ", theaterID=" + theaterID + ", theater=" + theater
+				+ ", getTheaterID()=" + getTheaterID() + ", getCurrentDay()="
+				+ getCurrentDay() + ", getMovie()=" + getMovie()
+				+ ", getStart()=" + getStart() + ", getEnd()=" + getEnd()
+				+ ", getTheater()=" + getTheater() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
 }

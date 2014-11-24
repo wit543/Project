@@ -1,6 +1,7 @@
 	import java.util.ArrayList;
+import java.util.Arrays;
 
-	public class Theater {
+	public class Theater implements Comparable{
 	private int numberOfTypeOfSeat;
 	private int[]	numbeOfRow;
 	private int numberOfColumn;
@@ -34,7 +35,7 @@
 	this.typeOfSeat = typeOfSeat;
 	this.price = price;
 	this.ID = String.valueOf(numberOfTheater);
-	numberOfTypeOfSeat++;
+	numberOfTheater++;
 	}
 	public String getID(){
 		return ID;
@@ -58,6 +59,27 @@
 
 	public void setPrice(double[] price) {
 		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Theater [numberOfTypeOfSeat=" + numberOfTypeOfSeat
+				+ ", numbeOfRow=" + Arrays.toString(numbeOfRow)
+				+ ", numberOfColumn=" + numberOfColumn + ", price="
+				+ Arrays.toString(price) + ", typeOfSeat="
+				+ Arrays.toString(typeOfSeat) + ", ID=" + ID + ", getID()="
+				+ getID() + ", getTypeOfSeat()="
+				+ Arrays.toString(getTypeOfSeat())
+				+ ", getNumberOfTypeOfSeat()=" + getNumberOfTypeOfSeat()
+				+ ", getNumbeOfRow()=" + Arrays.toString(getNumbeOfRow())
+				+ ", getNumberOfColumn()=" + getNumberOfColumn()
+				+ ", getPrice()=" + Arrays.toString(getPrice())
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return ID.compareTo(((Theater)o).getID());
 	}
 
 }
