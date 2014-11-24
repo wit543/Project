@@ -2,22 +2,40 @@ import java.util.ArrayList;
 
 public class Round {
 	private Movie movie;
+	private Day currentDay;
 	private Time start, end;
 	private ArrayList<Seat[][]> seatInEachtype = new ArrayList<Seat[][]>();
+	private ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
+	private String theaterID;
+
 	// []=row
 	// [][]=column
-
 
 	Round(Theater theater, Time start, Time end, Movie movie) {
 		initSeat(theater);
 		this.start = start;
 		this.end = end;
 		this.movie = movie;
+		this.theaterID = theater.getID();
 	}
-	public boolean booking(int row, int column){
-		int[] input = convert(row,column);
-		if(seatInEachtype.get(input[0)[input[1][2])
+
+	public String getTheaterID() {
+		return theaterID;
 	}
+
+	public Day getCurrentDay() {
+		return currentDay;
+	}
+
+	public boolean booking(int row, int column) {
+		int[] input = convert(row, column);
+		if (seatInEachtype.get(input[0])[input[1]][input[2]].canBook()) {
+			ticketList.add(new Ticket(movie,this,seatInEachtype.get(input[0])[input[1]][input[2]]));
+			return true;
+		}
+		return false;
+	}
+
 	private void initSeat(Theater theater) {
 		for (int i = 0; i < theater.getNumberOfTypeOfSeat(); i++) {
 			System.out.println(theater.getNumbeOfRow()[i]);
@@ -28,8 +46,9 @@ public class Round {
 			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
 				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
 					seatInEachtype.get(i)[j][k] = new Seat(
-							theater.getTypeOfSeat()[i], theater.getPrice()[i]);
-					System.out.print(getSeatInString(i,j,k)+" ");
+							theater.getTypeOfSeat()[i], theater.getPrice()[i],
+							getSeatInString(i, j, k));
+					System.out.print(getSeatInString(i, j, k) + " ");
 				}
 				System.out.println();
 			}
@@ -38,41 +57,42 @@ public class Round {
 		}
 
 	}
-	
-	public  int[] convert(int row ,int column){
+
+	public int[] convert(int row, int column) {
 		int aToZ = 65;
 		ArrayList<String> list = new ArrayList<String>();
-		int type =0;
-		for(int i =0;i<seatInEachtype.size();i++){
-			if(row-seatInEachtype.get(i).length<=0){
-				type =i;
+		int type = 0;
+		for (int i = 0; i < seatInEachtype.size(); i++) {
+			if (row - seatInEachtype.get(i).length <= 0) {
+				type = i;
 				break;
 			}
-			row-=seatInEachtype.get(i).length+1;
+			row -= seatInEachtype.get(i).length + 1;
 			System.out.println(row);
 		}
-		System.out.println(type+" "+row+" "+column);
-return new int[]{type,row,column};
+		System.out.println(type + " " + row + " " + column);
+		return new int[] { type, row, column };
 	}
-	
-	public String getSeatInString(int type,int row,int column){
+
+	public String getSeatInString(int type, int row, int column) {
 		int aToZ = 65;
 		ArrayList<String> list = new ArrayList<String>();
-		int totalRow =0;
-		for(int i =0;i<seatInEachtype.size();i++){
-			totalRow+=seatInEachtype.get(i).length;
+		int totalRow = 0;
+		for (int i = 0; i < seatInEachtype.size(); i++) {
+			totalRow += seatInEachtype.get(i).length;
 		}
-		for(int i=0;i<totalRow;i++){
-			list.add(String.valueOf((char)aToZ));
+		for (int i = 0; i < totalRow; i++) {
+			list.add(String.valueOf((char) aToZ));
 			aToZ++;
 		}
-		int newRow =0;
-		for(int i=0;i<type;i++){
-			newRow+= seatInEachtype.get(i).length;
+		int newRow = 0;
+		for (int i = 0; i < type; i++) {
+			newRow += seatInEachtype.get(i).length;
 		}
-		newRow+=row;
-		return list.get(newRow)+column;
+		newRow += row;
+		return list.get(newRow) + column;
 	}
+
 	public Movie getMovie() {
 		return movie;
 	}

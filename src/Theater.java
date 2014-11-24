@@ -36,7 +36,9 @@
 	this.ID = String.valueOf(numberOfTheater);
 	numberOfTypeOfSeat++;
 	}
-
+	public String getID(){
+		return ID;
+	}
 	public  String[]	 getTypeOfSeat(){
 		return typeOfSeat;
 	}
