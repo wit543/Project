@@ -14,7 +14,10 @@ public class Round {
 		this.end = end;
 		this.movie = movie;
 	}
-
+	public boolean booking(int row, int column){
+		int[] input = convert(row,column);
+		if(seatInEachtype.get(input[0)[input[1][2])
+	}
 	private void initSeat(Theater theater) {
 		for (int i = 0; i < theater.getNumberOfTypeOfSeat(); i++) {
 			System.out.println(theater.getNumbeOfRow()[i]);
