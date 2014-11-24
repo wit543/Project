@@ -29,7 +29,6 @@ public class Round {
 	public boolean booking(ArrayList<int[]> seat){
 		for(int i=0;i<seat.size();i++){
 			if(booking(seat.get(i)[0],seat.get(i)[1])){
-				
 			}
 			else{
 				System.out.println("can't book");
@@ -42,7 +41,7 @@ public class Round {
 		int[] input = convert(row, column);
 		if (seatInEachtype.get(input[0])[input[1]][input[2]].canBook()) {
 			ticketList.add(new Ticket(movie,this,seatInEachtype.get(input[0])[input[1]][input[2]]));
-			seatInEachtype.get(input[0])[input[1]][input[2]].booking();
+			seatInEachtype.get(input[0])[input[1]][input[2]].book();
 			return true;
 		}
 		return false;

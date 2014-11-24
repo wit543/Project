@@ -74,6 +74,8 @@ public class Seat {
 
 	public void book() {
 		isBooked = true;
+		setBookedImageIcon();
+		status = "booked";
 	}
 
 	public boolean canBook() {
@@ -119,5 +121,8 @@ public class Seat {
 
 	public void setUnvailbleImageIcon() {
 		image = imageList.get(convertTypeToInt(type))[3];
+	}
+	public String getStatus(){
+		return status;
 	}
 }
