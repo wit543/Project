@@ -1,4 +1,5 @@
 import java.awt.Image;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 
@@ -8,7 +9,7 @@ public class Movie implements Comparable {
 	private double rating;
 	private String summery;
 	private int rate;
-	private Image image;
+	private ImageIcon[] image;
 	private String detail;
 	private String genres;
 	private Day releaseDay;
@@ -40,12 +41,13 @@ public class Movie implements Comparable {
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
-	public Image getImage() {
+	public ImageIcon[] getImageIcon() {
 		return image;
 	}
-	public void setImage(Image image) {
+	public void setImageIcon(ImageIcon[] image) {
 		this.image = image;
 	}
+
 	public String getDetail() {
 		return detail;
 	}
@@ -88,14 +90,11 @@ public class Movie implements Comparable {
 	public void setDulation(Time dulation) {
 		this.dulation = dulation;
 	}
-	public ImageIcon getImageIcon(){
-		return new ImageIcon(image);
-	}
 	public Movie(){
 		
 	}
 	public Movie(String title, double rating, String summery, int rate,
-			Image image, String detail, String genres, Day releaseDay,
+			ImageIcon[] image, String detail, String genres, Day releaseDay,
 			String director, String synopis, String language, Time dulation) {
 		super();
 		this.title = title;
@@ -111,23 +110,10 @@ public class Movie implements Comparable {
 		this.language = language;
 		this.dulation = dulation;
 	}
+	
 	@Override
 	public String toString() {
-		return "Movie [title=" + title + ", rating=" + rating + ", summery="
-				+ summery + ", rate=" + rate + ", image=" + image + ", detail="
-				+ detail + ", genres=" + genres + ", releaseDay=" + releaseDay
-				+ ", Director=" + Director + ", synopis=" + synopis
-				+ ", language=" + language + ", dulation=" + dulation
-				+ ", getTitle()=" + getTitle() + ", getRating()=" + getRating()
-				+ ", getSummery()=" + getSummery() + ", getRate()=" + getRate()
-				+ ", getImage()=" + getImage() + ", getDetail()=" + getDetail()
-				+ ", getGenres()=" + getGenres() + ", getReleaseDay()="
-				+ getReleaseDay() + ", getDirector()=" + getDirector()
-				+ ", getSynopis()=" + getSynopis() + ", getLanguage()="
-				+ getLanguage() + ", getDulation()=" + getDulation()
-				+ ", getImageIcon()=" + getImageIcon() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return Arrays.toString(image) ;
 	}
 	@Override
 	public int compareTo(Object o) {

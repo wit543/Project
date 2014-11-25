@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.Label;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
 import javax.swing.SpringLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -22,6 +24,7 @@ import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class choose extends JFrame implements Runnable {
 
@@ -31,47 +34,130 @@ public class choose extends JFrame implements Runnable {
 	/**
 	 * Create the frame.
 	 */
-	private ImageIcon[] currentImage = new ImageIcon[3];
-	private int currentPosition=1;
+	private ImageIcon[] currentImage = new ImageIcon[9];
+	private int currentPosition=4;
 	private ArrayList<Movie> movie;
 	private ArrayList<Round> round;
-	JLabel previousLabel,mainLabel,nextLabel;
+	private JLabel previousLabel4,mainLabel,nextLabel4,previousLabel1,previousLabel2,previousLabel3;
+	private JLabel nextLabel1;
+	private JLabel nextLabel2;
+	private JLabel nextLabel3;
 	public choose(ArrayList<Movie> movie,ArrayList<Round> round) {
 		this.movie=movie;
 		this.round=round;
-		currentImage[0]=movie.get(0).getImageIcon();
-		currentImage[1]=movie.get(1).getImageIcon();
-		currentImage[2]=movie.get(2).getImageIcon();
+		JLayeredPane pane = new JLayeredPane();
+		pane.setSize(1000, 600);
+		currentImage[0]=movie.get(0).getImageIcon()[4];
+		currentImage[1]=movie.get(1).getImageIcon()[3];
+		currentImage[2]=movie.get(2).getImageIcon()[2];
+		currentImage[3]=movie.get(3).getImageIcon()[1];
+		currentImage[4]=movie.get(4).getImageIcon()[0];
+		currentImage[5]=movie.get(5).getImageIcon()[1];
+		currentImage[6]=movie.get(6).getImageIcon()[2];
+		currentImage[7]=movie.get(7).getImageIcon()[3];
+		currentImage[8]=movie.get(8).getImageIcon()[4];
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 400);
+		setBounds(100, 100, 1000, 600);
 		getContentPane().setLayout(null);
 		setUndecorated(true);
-		previousLabel = new JLabel();
-		previousLabel.setBounds(10, 60, 140, 180);
-		previousLabel.setIcon(currentImage[0]);
-		previousLabel.setBackground(Color.RED);
-		previousLabel.setOpaque(true);
-		getContentPane().add(previousLabel);
 		
 		mainLabel = new JLabel();
-		mainLabel.setBounds(190, 20, 215, 265);
-		mainLabel.setIcon(currentImage[1]);
+		mainLabel.setBounds(360, 30, 280, 420);
+		mainLabel.setIcon(currentImage[4]);
 		mainLabel.setBackground(Color.BLUE);
 		mainLabel.setOpaque(true);
-		getContentPane().add(mainLabel);
+		pane.add(mainLabel,9,0);
+
 		
-		nextLabel = new JLabel();
-		nextLabel.setBounds(450, 60, 140, 180);
-		nextLabel.setIcon(currentImage[2]);
-		nextLabel.setBackground(Color.BLUE);
-		nextLabel.setOpaque(true);
-		getContentPane().add(nextLabel);
+		previousLabel1 = new JLabel();
+		previousLabel1.setOpaque(true);
+		previousLabel1.setIcon(currentImage[3]);
+		previousLabel1.setBackground(Color.BLACK);
+		previousLabel1.setBounds(274, 45, 260, 390);
+		pane.add(previousLabel1,8,0);
+		
+		previousLabel2 = new JLabel();
+		previousLabel2.setOpaque(true);
+		previousLabel2.setIcon(currentImage[2]);
+		previousLabel2.setBackground(Color.RED);
+		previousLabel2.setBounds(194, 60, 240, 360);
+		pane.add(previousLabel2);
+		
+		previousLabel3 = new JLabel();
+		previousLabel3.setOpaque(true);
+		previousLabel3.setIcon(currentImage[1]);
+		previousLabel3.setBackground(Color.RED);
+		previousLabel3.setBounds(121, 75, 220, 330);
+		pane.add(previousLabel3);
+		
+		previousLabel4 = new JLabel();
+		previousLabel4.setBounds(50, 90, 200, 300);
+		previousLabel4.setBackground(Color.RED);
+		previousLabel4.setOpaque(true);
+		previousLabel4.setIcon(currentImage[0]);
+		previousLabel4.addMouseListener(new previous());
+		pane.add(previousLabel4);
+		
+		nextLabel1 = new JLabel();
+		nextLabel1.setOpaque(true);
+		nextLabel1.setIcon(currentImage[5]);
+		nextLabel1.setBackground(Color.BLACK);
+		nextLabel1.setBounds(466, 45, 260, 390);
+		pane.add(nextLabel1);
+		
+		nextLabel2 = new JLabel();
+		nextLabel2.setOpaque(true);
+		nextLabel2.setIcon(currentImage[6]);
+		nextLabel2.setBackground(Color.RED);
+		nextLabel2.setBounds(566, 60, 240, 360);
+		pane.add(nextLabel2);
+		
+		nextLabel3 = new JLabel();
+		nextLabel3.setOpaque(true);
+		nextLabel3.setIcon(currentImage[7]);
+		nextLabel3.setBackground(Color.RED);
+		nextLabel3.setBounds(659, 75, 220, 330);
+		pane.add(nextLabel3);
+		
+		nextLabel4 = new JLabel();
+		nextLabel4.setBounds(750, 90, 200, 300);
+		nextLabel4.setIcon(currentImage[8]);
+		nextLabel4.setBackground(Color.BLUE);
+		nextLabel4.setOpaque(true);
+		nextLabel4.addMouseListener(new next());
+		pane.add(nextLabel4);
 		
 		JLabel previousButton = new JLabel();
-		previousButton.setBounds(10, 300, 150, 50);
+		previousButton.setBounds(115, 450, 150, 50);
 		previousButton.setBackground(Color.CYAN);
 		previousButton.setOpaque(true);
-		previousButton.addMouseListener(new MouseListener() {
+		previousButton.addMouseListener(new previous());
+		pane.add(previousButton);
+		
+		JLabel chooseButton = new JLabel();
+		chooseButton.setBounds(390, 490, 215, 55);
+		chooseButton.setBackground(Color.BLACK);
+		chooseButton.setOpaque(true);
+		pane.add(chooseButton);
+		
+		JLabel nextButton = new JLabel();
+		nextButton.setBounds(725, 450, 150, 50);
+		nextButton.setBackground(Color.YELLOW);
+		nextButton.setOpaque(true);
+		nextButton.addMouseListener(new next());
+		pane.add(nextButton);
+		getContentPane().add(pane);
+
+		
+
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+
+	}
+	private class previous implements MouseListener{
+
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -94,7 +180,6 @@ public class choose extends JFrame implements Runnable {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
@@ -102,108 +187,186 @@ public class choose extends JFrame implements Runnable {
 				// TODO Auto-generated method stub
 				updatePreviousMovie();
 			}
-		});
-		getContentPane().add(previousButton);
 		
-		JLabel chooseButton = new JLabel();
-		chooseButton.setBounds(190, 315, 215, 55);
-		chooseButton.setBackground(Color.BLACK);
-		chooseButton.setOpaque(true);
-		getContentPane().add(chooseButton);
+	}
+	private class  next implements MouseListener{
 		
-		JLabel nextButton = new JLabel();
-		nextButton.setBounds(440, 300, 150, 50);
-		nextButton.setBackground(Color.YELLOW);
-		nextButton.setOpaque(true);
-		nextButton.addMouseListener(new MouseListener() {
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
 			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				updateNextMovie();
-			}
-		});
-			
+		}
 		
-		getContentPane().add(nextButton);
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 		
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			updateNextMovie();
+		}
 	}
 	private void updatePreviousMovie(){
 		currentPosition--;
 		if(currentPosition==-1)
 			currentPosition=movie.size()-1;
+		
 		System.out.println(currentPosition);
-		if(currentPosition>0&&currentPosition<movie.size()-1){
-			currentImage[0]=movie.get(currentPosition-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(currentPosition+1).getImageIcon();
-		}
-		else if(currentPosition==0){
-			currentImage[0]=movie.get(movie.size()-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(currentPosition+1).getImageIcon();
-		}
-		else if(currentPosition==movie.size()-1){
-			currentImage[0]=movie.get(currentPosition-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(0).getImageIcon();
-		}
-		previousLabel.setIcon(currentImage[0]);
-		mainLabel.setIcon(currentImage[1]);
-		nextLabel.setIcon(currentImage[2]);
+		updateImageIcon();
 	}
 	private void updateNextMovie(){
 		currentPosition++;
 		if(currentPosition==movie.size())
 			currentPosition=0;
 		System.out.println(currentPosition);
+		/*
 		if(currentPosition<movie.size()-1&&currentPosition>0){
-			currentImage[0]=movie.get(currentPosition-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(currentPosition+1).getImageIcon();
+			currentImage[0]=movie.get(currentPosition-1).getImageIcon()[0];
+			currentImage[1]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[2]=movie.get(currentPosition+1).getImageIcon()[0];
 		}
 		else if(currentPosition==0){
-			currentImage[0]=movie.get(movie.size()-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(currentPosition+1).getImageIcon();
+			currentImage[0]=movie.get(movie.size()-1).getImageIcon()[0];
+			currentImage[1]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[2]=movie.get(currentPosition+1).getImageIcon()[0];
 		}
 		else if(currentPosition==movie.size()-1){
-			currentImage[0]=movie.get(currentPosition-1).getImageIcon();
-			currentImage[1]=movie.get(currentPosition).getImageIcon();
-			currentImage[2]=movie.get(0).getImageIcon();
+			currentImage[0]=movie.get(currentPosition-1).getImageIcon()[0];
+			currentImage[1]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[2]=movie.get(0).getImageIcon()[0];
 		}
 		previousLabel.setIcon(currentImage[0]);
 		mainLabel.setIcon(currentImage[1]);
 		nextLabel.setIcon(currentImage[2]);
+*/
+		updateImageIcon();
+	}
+	private void updateImageIcon(){
 
+		 if(currentPosition==0){
+				currentImage[0]=movie.get(movie.size()-4).getImageIcon()[4];
+				currentImage[1]=movie.get(movie.size()-3).getImageIcon()[3];
+				currentImage[2]=movie.get(movie.size()-2).getImageIcon()[2];
+				currentImage[3]=movie.get(movie.size()-1).getImageIcon()[1];
+				currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+				currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+				currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+				currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+				currentImage[8]=movie.get(currentPosition+4).getImageIcon()[4];
+		}
+		 else if(currentPosition==1){
+				currentImage[0]=movie.get(movie.size()-3).getImageIcon()[4];
+				currentImage[1]=movie.get(movie.size()-2).getImageIcon()[3];
+				currentImage[2]=movie.get(movie.size()-1).getImageIcon()[2];
+				currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+				currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+				currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+				currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+				currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+				currentImage[8]=movie.get(currentPosition+4).getImageIcon()[4];
+		}
+		 else if(currentPosition==2){
+				currentImage[0]=movie.get(movie.size()-2).getImageIcon()[4];
+				currentImage[1]=movie.get(movie.size()-1).getImageIcon()[3];
+				currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+				currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+				currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+				currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+				currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+				currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+				currentImage[8]=movie.get(currentPosition+4).getImageIcon()[4];
+		}
+		 else if(currentPosition==3){
+				currentImage[0]=movie.get(movie.size()-1).getImageIcon()[4];
+				currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+				currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+				currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+				currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+				currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+				currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+				currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+				currentImage[8]=movie.get(currentPosition+4).getImageIcon()[4];
+		}
+		else if(currentPosition==movie.size()-1){
+			currentImage[0]=movie.get(currentPosition-4).getImageIcon()[4];
+			currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+			currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+			currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+			currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[5]=movie.get(0).getImageIcon()[1];
+			currentImage[6]=movie.get(1).getImageIcon()[2];
+			currentImage[7]=movie.get(2).getImageIcon()[3];
+			currentImage[8]=movie.get(3).getImageIcon()[4];
+		}
+		else if(currentPosition==movie.size()-2){
+			currentImage[0]=movie.get(currentPosition-4).getImageIcon()[4];
+			currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+			currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+			currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+			currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+			currentImage[6]=movie.get(0).getImageIcon()[2];
+			currentImage[7]=movie.get(1).getImageIcon()[3];
+			currentImage[8]=movie.get(2).getImageIcon()[4];
+		}
+		else if(currentPosition==movie.size()-3){
+			currentImage[0]=movie.get(currentPosition-4).getImageIcon()[4];
+			currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+			currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+			currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+			currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+			currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+			currentImage[7]=movie.get(0).getImageIcon()[3];
+			currentImage[8]=movie.get(1).getImageIcon()[4];
+		}
+		else if(currentPosition==movie.size()-4){
+			currentImage[0]=movie.get(currentPosition-4).getImageIcon()[4];
+			currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+			currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+			currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+			currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+			currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+			currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+			currentImage[8]=movie.get(0).getImageIcon()[4];
+		}
+		else{
+			currentImage[0]=movie.get(currentPosition-4).getImageIcon()[4];
+			currentImage[1]=movie.get(currentPosition-3).getImageIcon()[3];
+			currentImage[2]=movie.get(currentPosition-2).getImageIcon()[2];
+			currentImage[3]=movie.get(currentPosition-1).getImageIcon()[1];
+			currentImage[4]=movie.get(currentPosition).getImageIcon()[0];
+			currentImage[5]=movie.get(currentPosition+1).getImageIcon()[1];
+			currentImage[6]=movie.get(currentPosition+2).getImageIcon()[2];
+			currentImage[7]=movie.get(currentPosition+3).getImageIcon()[3];
+			currentImage[8]=movie.get(currentPosition+4).getImageIcon()[4];
+		}
+		 mainLabel.setIcon(currentImage[4]);
+		 previousLabel1.setIcon(currentImage[3]);
+		 previousLabel2.setIcon(currentImage[2]);
+		 previousLabel3.setIcon(currentImage[1]);
+		 previousLabel4.setIcon(currentImage[0]);
+		nextLabel1.setIcon(currentImage[5]);
+		nextLabel2.setIcon(currentImage[6]);
+		nextLabel3.setIcon(currentImage[7]);
+		nextLabel4.setIcon(currentImage[8]);
+		
 		
 	}
 
@@ -212,5 +375,4 @@ public class choose extends JFrame implements Runnable {
 		// TODO Auto-generated method stub
 		setVisible(true);
 	}
-
 }

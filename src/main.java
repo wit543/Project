@@ -2,11 +2,13 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
 import javax.imageio.ImageIO;
 import javax.jws.soap.SOAPBinding;
+import javax.swing.ImageIcon;
 
 public class main {
 	static ArrayList<Round> roundList = new ArrayList<Round>();
@@ -35,44 +37,95 @@ public static void innitAll(){
 			1, 2, 3 }, new String[] { "a", "b", "c" }));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
 			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	Image image1 = null;
-	Image image2 = null;
-	Image image3 = null;
-	Image image4 = null;
-	try {
-		image1 = ImageIO.read(new File("D:\\java\\y1s1\\Project\\src\\images\\1.png"));
-		image2 = ImageIO.read(new File("D:\\java\\y1s1\\Project\\src\\images\\2.png"));
-		image3 = ImageIO.read(new File("D:\\java\\y1s1\\Project\\src\\images\\3.png"));
-		image4 = ImageIO.read(new File("D:\\java\\y1s1\\Project\\src\\images\\4.png"));
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		System.out.println("Fail");
-	}
+	ArrayList<ImageIcon[]> imageIconList =new ArrayList<ImageIcon[]>();
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	imageIconList.add(new ImageIcon[5]);
+	
+
+		for(int i=0;i<10;i++){
+			for(int j=0;j<5;j++){
+				try {
+				String location ="D:\\java\\y1s1\\Project\\src\\images\\movie"+(i+1)+"_"+j+".png";
+				imageIconList.get(i)[j] = new ImageIcon(ImageIO.read(new File(location)));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("Fail");
+				}
+			}
+		}
+
 	movieList.add(new Movie("a in a", 9.8,
 			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			18, image1, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+			18, imageIconList.get(0),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 					10, 10, 10), "Steave Job",
 			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 					1000000)));
 	movieList.add(new Movie("a in b", 9.8,
 			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			18, image2, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+			18,  imageIconList.get(1),"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 					10, 10, 10), "Steave Job",
 			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 					1000000)));
 	movieList.add(new Movie("a in c", 9.8,
 			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			18, image3, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+			18,  imageIconList.get(2),"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 					10, 10, 10), "Steave Job",
 			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 					1000000)));
 	movieList.add(new Movie("a in d", 9.8,
 			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			18, image4, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+			18,  imageIconList.get(3),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 					10, 10, 10), "Steave Job",
 			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(4),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(5),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(6),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(7),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(8),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	movieList.add(new Movie("a in d", 9.8,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			18,  imageIconList.get(9),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
+					10, 10, 10), "Steave Job",
+			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
+					1000000)));
+	for(int i =0;i<movieList.size();i++){
+		System.out.println(movieList.get(i).toString());
+	}
 
 	roundList.add(new Round(theaterList.get(0), new Time(10, 10, 10),
 			new Time(11, 11, 11), movieList.get(0)));
