@@ -22,24 +22,25 @@ public class Seat {
 	boolean isBooked;
 	String status;
 	String ID;
+	private int[] position;
 
-	Seat(String type, double price, String ID) {
+	Seat(String type, double price, String ID,int[] position) {
 		this.type = type;
 		this.price = price;
 		this.isBooked = false;
 		this.ID = ID;
 		this.status = "notBooked";
+		this.position = position;
 		if (type.equals("honeymoon")) {
 			numberOfPersonThatCanSit = 2;
 		} else {
 			numberOfPersonThatCanSit = 1;
 		}
-
 		int numberOfType = 5;
 		for (int i = 0; i < numberOfType; i++) {
 			ImageIcon[] array = new ImageIcon[4];
 			try {
-				array[0] = new ImageIcon(ImageIO.read(new File("")));
+				array[0] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatBooked.png")));
 				// String
 				// examp;e
 				// "seatType1_1"
@@ -47,12 +48,12 @@ public class Seat {
 				// TODO: handle exception
 			}
 			try {
-				array[1] = new ImageIcon(ImageIO.read(new File("")));
+				array[1] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png")));
 			} catch (Exception e) {
 
 			}
 			try {
-				array[2] = new ImageIcon(ImageIO.read(new File("")));
+				array[2] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png")));
 				// String
 				// examp;e
 				// "seatType1_1"
@@ -60,18 +61,23 @@ public class Seat {
 				// TODO: handle exception
 			}
 			try {
-				array[3] = new ImageIcon(ImageIO.read(new File("")));
+				array[3] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png")));
 			} catch (Exception e) {
-
+				System.out.println("fail");
 			}
 			imageList.add(array);
 		}
+		setNotBookedImageIcon();
 	}
-
+	public String getType(){
+		return type;
+	}
 	public String getID() {
 		return ID;
 	}
-
+	public int[] getPosition(){
+		return position;
+	}
 	public void book() {
 		isBooked = true;
 		setBookedImageIcon();
@@ -105,6 +111,7 @@ public class Seat {
 
 	public ImageIcon getImageIcon() {
 		return image;
+
 	}
 
 	public void setBookedImageIcon() {
@@ -124,5 +131,10 @@ public class Seat {
 	}
 	public String getStatus(){
 		return status;
+	}
+	public void cancel(){
+		status = "notBooked";
+		setNotBookedImageIcon();
+		isBooked=false;
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 	public class Theater implements Comparable{
 	private int numberOfTypeOfSeat;
 	private int[]	numbeOfRow;
-	private int numberOfColumn;
+	private int[] numberOfColumn;
 //[]=type of seat 
 //[][] = diemtiontion of seat
 //		______________________
@@ -23,12 +23,13 @@ import java.util.Arrays;
 //		dimentionOfTheSeatAndNumBerOfSeat[1][1]=4;
 //		dimentionOfTheSeatAndNumBerOfSeat[2][0]=8;
 //		dimentionOfTheSeatAndNumBerOfSeat[2][1]=1;
-
+	private String cinemaName;
 	private double[] price;
 	private String[] typeOfSeat;
 	private String ID;
 	private static int numberOfTheater=1;
-	Theater(int[] numberOfRow,int numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat){
+	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName){
+		this.cinemaName = cinemaName;
 	this.numbeOfRow=numberOfRow;
 	this.numberOfColumn =numberOfColumn;
 	this.numberOfTypeOfSeat =  numberOfTypeOfSeat;
@@ -49,7 +50,7 @@ import java.util.Arrays;
 	public int[] getNumbeOfRow() {
 		return numbeOfRow;
 	}
-	public int getNumberOfColumn(){
+	public int[] getNumberOfColumn(){
 		return numberOfColumn;
 	}
 
@@ -59,6 +60,9 @@ import java.util.Arrays;
 
 	public void setPrice(double[] price) {
 		this.price = price;
+	}
+	public String getCinemaName(){
+		return cinemaName;
 	}
 	@Override
 	public String toString() {

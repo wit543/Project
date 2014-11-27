@@ -11,6 +11,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.swing.ImageIcon;
 
 public class main {
+	static String cinemaName = "SKE";
 	static ArrayList<Round> roundList = new ArrayList<Round>();
 	static ArrayList<Movie> movieList = new ArrayList<Movie>();
 	static ArrayList<Theater> theaterList = new ArrayList<Theater>();
@@ -19,24 +20,24 @@ public class main {
 		innitAll();
 		ArrayList<Round> newRound = sortForMovie(roundList);
 		choose c = new choose(movieList,roundList);
-		c.run();
+		//c.run();
 	}
 	
 public static void innitAll(){
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 }, 10, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" }));
+	theaterList.add(new Theater(new int[] { 5, 10, 1 }, new int[]{10,8,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
 	ArrayList<ImageIcon[]> imageIconList =new ArrayList<ImageIcon[]>();
 	imageIconList.add(new ImageIcon[5]);
 	imageIconList.add(new ImageIcon[5]);
@@ -123,20 +124,18 @@ public static void innitAll(){
 					10, 10, 10), "Steave Job",
 			"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 					1000000)));
-	for(int i =0;i<movieList.size();i++){
-		System.out.println(movieList.get(i).toString());
-	}
-
 	roundList.add(new Round(theaterList.get(0), new Time(10, 10, 10),
 			new Time(11, 11, 11), movieList.get(0)));
 	roundList.add(new Round(theaterList.get(2), new Time(10, 10, 10),
 			new Time(11, 11, 11), movieList.get(0)));
+	Booking b = new Booking(roundList.get(0));
+	b.run();
 }
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {
 		ArrayList<Round> newRound = new ArrayList<Round>();
 		Collections.sort(round);
 		for(int i =0;i<round.size();i++){
-			System.out.println(round.get(i).toString());
+			//System.out.println(round.get(i).toString());
 		}
 	
 		return newRound;
