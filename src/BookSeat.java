@@ -37,13 +37,14 @@ import javax.swing.JTextArea;
 
 
 
-public class Booking extends JFrame implements Runnable{
+public class BookSeat extends JFrame implements Runnable{
 
 	private JPanel selectSeat,showInfo;
 private ScrollPane scrollPane;
 private JTextArea infoTextArea;
 private Round round;
-	public Booking(Round round) {
+private JPanel top ;
+	public BookSeat(Round round) {
 		this.round=round;
 		setBackground(Color.YELLOW);
 		 Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -59,7 +60,7 @@ private Round round;
 
 		initShowSeat(round);
 		initInfo(round);
-		JPanel top = new JPanel();
+		top = new JPanel();
 		top.add(selectSeat);
 		top.add(showInfo);
 		showInfo.setLayout(null);
@@ -111,9 +112,9 @@ private Round round;
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				round.clearSeat();
 				clearSeat();
-				updateInfo();
+
+
 			}
 		});
 		top.add(clearLabel);
@@ -122,9 +123,18 @@ private Round round;
 		return round;
 	}
 	public void clearSeat(){
+		round.clearSeat();
 		for(int i =0;i<seatLabelList.size();i++){
-			seatLabelList.get(i).updateIcon();
+			seatLabelList.get(i).cancel();
 		}
+		
+		//seatLabelList = new ArrayList<seatLabel>();
+		for(int i=0;i<seatLabelList.size();i++){
+			seatLabelList.get(0).updateIcon();
+}
+
+
+		updateInfo();
 	}
 	public void updateInfo(){
 		String infoString="";

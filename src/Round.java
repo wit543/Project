@@ -54,6 +54,20 @@ public class Round implements Comparable {
 		if (seatInEachtype.get(type)[row][column].canBook()) {
 			ticketList.add(new Ticket(movie,this,seatInEachtype.get(type)[row][column]));
 			seatInEachtype.get(type)[row][column].book();
+			
+			System.out.println("round");
+			for (int i = 0; i < seatInEachtype.size(); i++) {
+				for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+					for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+						System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+					}
+					System.out.println();
+				}
+				System.out.println();
+				System.out.println();
+			}
+			
+			
 			return true;
 		}
 		return false;
@@ -79,9 +93,48 @@ public class Round implements Comparable {
 		}
 
 	}
+	public void cancelSeat(int type,int row, int column){
+		seatInEachtype.get(type)[row][column].cancel();
+		System.out.println("Cancel");
+
+		for (int i = 0; i < seatInEachtype.size(); i++) {
+			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+				}
+				System.out.println();
+			}
+			System.out.println();
+			System.out.println();
+		}
+	}
 	public void clearSeat(){
-		seatInEachtype = new ArrayList<Seat[][]>();
-		initSeat(theater);
+		for (int i = 0; i < seatInEachtype.size(); i++) {
+			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+					if(seatInEachtype.get(i)[j][k].isBooked){
+						cancelSeat(i, j, k);
+					}
+				}
+				System.out.println();
+			}
+			System.out.println();
+			System.out.println();
+		}
+		
+
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+		for (int i = 0; i < seatInEachtype.size(); i++) {
+			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+				}
+				System.out.println();
+			}
+			System.out.println();
+			System.out.println();
+		}
 	}
 	public int[] convert(int row, int column) {
 		int aToZ = 65;

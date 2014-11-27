@@ -128,7 +128,7 @@ public static void innitAll(){
 			new Time(11, 11, 11), movieList.get(0)));
 	roundList.add(new Round(theaterList.get(2), new Time(10, 10, 10),
 			new Time(11, 11, 11), movieList.get(0)));
-	Booking b = new Booking(roundList.get(0));
+	BookSeat b = new BookSeat(roundList.get(0));
 	b.run();
 }
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {

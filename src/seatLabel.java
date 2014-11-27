@@ -11,8 +11,10 @@ import javax.swing.JLabel;
 
 public class seatLabel extends JLabel {
 	Seat seat;
-	Booking booking;
-	seatLabel(Seat seat,Booking booking){
+	BookSeat booking;
+	seatLabel seatlabel;
+	seatLabel(Seat seat,BookSeat booking){
+		this.seatlabel = this;
 		this.seat = seat;
 		this.booking = booking;
 		setPreferredSize(new Dimension(50,50));
@@ -54,14 +56,15 @@ public class seatLabel extends JLabel {
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
+			System.out.println("Mouse Released : " + seatlabel);
 			if(seat.canBook()){
 				booking.getRound().booking(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 				setIcon(seat.getImageIcon());
 			}
 			else{
 				seat.cancel();
+				booking.getRound().cancelSeat(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 				setIcon(seat.getImageIcon());
-
 			}
 			booking.updateInfo();
 			for (int i = 0; i < booking.getRound().getSeatInEachType().size(); i++) {
@@ -78,8 +81,21 @@ public class seatLabel extends JLabel {
 		}
 
 	}
+	public void cancel(){
+		seat.cancel();
+		booking.getRound().cancelSeat(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
+		setIcon(seat.getImageIcon());
+
+	}
 	public void updateIcon(){
 		seat.cancel();
-		setIcon(seat.getImageIcon());
+		booking.getRound().cancelSeat(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
+	
+			setIcon(seat.getImageIcon());
+		//	setIcon(new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png"))));
+			System.out.println("UpdateIcon : " + this);
+			System.out.println("ssssssssssss");
+		
+
 	}
 }
