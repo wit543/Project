@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.multi.MultiButtonUI;
 import javax.tools.Tool;
+import javax.xml.ws.handler.MessageContext.Scope;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -40,11 +41,11 @@ import javax.swing.JTextArea;
 public class BookSeat extends JFrame implements Runnable{
 
 	private JPanel selectSeat,showInfo;
-private ScrollPane scrollPane;
+
 private JTextArea infoTextArea;
 private Round round;
 private JPanel top ;
-	public BookSeat(Round round) {
+	public BookSeat(Round round,ChooseRound chooseRound) {
 		this.round=round;
 		setBackground(Color.YELLOW);
 		 Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -113,11 +114,51 @@ private JPanel top ;
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				clearSeat();
-
+				
 
 			}
 		});
 		top.add(clearLabel);
+		
+		JLabel back = new JLabel("Back");
+		back.setHorizontalAlignment(SwingConstants.CENTER);
+		back.setOpaque(true);
+		back.setBackground(Color.RED);
+		back.setBounds(737, 373, 110, 51);
+		back.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				chooseRound.run();
+				dispose();
+			}
+		});
+		top.add(back);
 	}
 	public Round getRound(){
 		return round;
@@ -172,9 +213,7 @@ private JPanel top ;
 		selectSeat.setBackground(Color.RED);
 		selectSeat.setOpaque(true);
 
-		scrollPane =new ScrollPane();
-		scrollPane.setBackground(Color.YELLOW);
-		scrollPane.setBounds(0, 0, 500, 100);
+
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 		panel.setBackground(Color.BLUE);
@@ -220,7 +259,12 @@ private JPanel top ;
 			}
 			panel.add(midlePanel);
 
-		}			scrollPane.add(panel);
+		}			
+		JScrollPane scrollPane =new JScrollPane(panel);
+		scrollPane.setBackground(Color.YELLOW);
+		scrollPane.setBounds(0, 0, 500, 100);
+		scrollPane.remove(1);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(5);
 		selectSeat.add(scrollPane);
 	}
 	/*

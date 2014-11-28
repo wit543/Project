@@ -20,24 +20,24 @@ public class main {
 		innitAll();
 		ArrayList<Round> newRound = sortForMovie(roundList);
 		choose c = new choose(movieList,roundList);
-		//c.run();
+		c.run();
 	}
-	
+		
 public static void innitAll(){
 	theaterList.add(new Theater(new int[] { 5, 10, 1 }, new int[]{10,8,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"Normal"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"IMAX"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName));
+			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"3D"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"2D"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"1D"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"vintage"));
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName));
+			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"111111111111111"));
 	ArrayList<ImageIcon[]> imageIconList =new ArrayList<ImageIcon[]>();
 	imageIconList.add(new ImageIcon[5]);
 	imageIconList.add(new ImageIcon[5]);
@@ -126,10 +126,28 @@ public static void innitAll(){
 					1000000)));
 	roundList.add(new Round(theaterList.get(0), new Time(10, 10, 10),
 			new Time(11, 11, 11), movieList.get(0)));
-	roundList.add(new Round(theaterList.get(2), new Time(10, 10, 10),
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(1)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(2)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(3)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(4)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(5)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(6)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(7)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(8)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+			new Time(11, 11, 11), movieList.get(9)));
+	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 			new Time(11, 11, 11), movieList.get(0)));
-	BookSeat b = new BookSeat(roundList.get(0));
-	b.run();
+	ChooseRound c = new ChooseRound(roundList);
+	c.run();
 }
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {
 		ArrayList<Round> newRound = new ArrayList<Round>();

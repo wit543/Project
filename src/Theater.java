@@ -28,15 +28,20 @@ import java.util.Arrays;
 	private String[] typeOfSeat;
 	private String ID;
 	private static int numberOfTheater=1;
-	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName){
+	private String type;
+	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName,String type){
 		this.cinemaName = cinemaName;
 	this.numbeOfRow=numberOfRow;
 	this.numberOfColumn =numberOfColumn;
 	this.numberOfTypeOfSeat =  numberOfTypeOfSeat;
 	this.typeOfSeat = typeOfSeat;
 	this.price = price;
+	this.type = type;
 	this.ID = String.valueOf(numberOfTheater);
 	numberOfTheater++;
+	}
+	public String getType(){
+		return type;
 	}
 	public String getID(){
 		return ID;

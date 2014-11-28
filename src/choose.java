@@ -138,6 +138,7 @@ public class choose extends JFrame implements Runnable {
 		chooseButton.setBounds(390, 490, 215, 55);
 		chooseButton.setBackground(Color.BLACK);
 		chooseButton.setOpaque(true);
+		chooseButton.addMouseListener(new chooseThisMovie());
 		pane.add(chooseButton);
 		
 		JLabel nextButton = new JLabel();
@@ -155,6 +156,53 @@ public class choose extends JFrame implements Runnable {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 
+	}
+	private ArrayList<Round> getListOfRound(){
+		System.out.println(currentPosition);
+		ArrayList<Round> RoundThatHaveSameMove = new ArrayList<Round>();
+		for(int i=0;i<round.size();i++){
+			if(round.get(i).getMovie().getTitle().equals(round.get(currentPosition).getMovie().getTitle())){
+				RoundThatHaveSameMove.add(round.get(i));
+			}
+		}
+		for(int i=0;i<RoundThatHaveSameMove.size();i++){
+		System.out.println(RoundThatHaveSameMove.get(i).getMovie().getTitle());
+		}
+		return RoundThatHaveSameMove;
+	}
+	private class chooseThisMovie implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			ChooseRound c = new ChooseRound(getListOfRound(),this);
+			c.run();
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 	private class previous implements MouseListener{
 
@@ -375,4 +423,5 @@ public class choose extends JFrame implements Runnable {
 		// TODO Auto-generated method stub
 		setVisible(true);
 	}
+	
 }
