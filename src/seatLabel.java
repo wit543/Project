@@ -60,6 +60,7 @@ public class seatLabel extends JLabel {
 			if(seat.canBook()){
 				booking.getRound().booking(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 				setIcon(seat.getImageIcon());
+				booking.getBookedList().add(seat);
 			}
 			else{
 				seat.cancel();

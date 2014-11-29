@@ -45,6 +45,7 @@ public class BookSeat extends JFrame implements Runnable{
 private JTextArea infoTextArea;
 private Round round;
 private JPanel top ;
+private ArrayList<Seat> bookedList = new ArrayList<Seat>();
 	public BookSeat(Round round,ChooseRound chooseRound) {
 		this.round=round;
 		setBackground(Color.YELLOW);
@@ -77,6 +78,40 @@ private JPanel top ;
 		confrm.setBackground(new Color(102, 255, 0));
 		confrm.setOpaque(true);
 		confrm.setBounds(827, 454, 115, 70);
+		confrm.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(bookedList);
+				Payment p = new Payment(bookedList, round);
+				p.run();
+			}
+		});
 		top.add(confrm);
 		
 		JLabel clearLabel = new JLabel("Cancel");
@@ -176,6 +211,9 @@ private JPanel top ;
 
 
 		updateInfo();
+	}
+	public ArrayList<Seat> getBookedList(){
+		return bookedList;
 	}
 	public void updateInfo(){
 		String infoString="";

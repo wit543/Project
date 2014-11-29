@@ -21,6 +21,7 @@ public class main {
 		ArrayList<Round> newRound = sortForMovie(roundList);
 		choose c = new choose(movieList,roundList);
 		c.run();
+
 	}
 		
 public static void innitAll(){
