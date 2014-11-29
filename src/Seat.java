@@ -54,7 +54,7 @@ public class Seat {
 
 			}
 			try {
-				array[2] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png")));
+				array[2] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatPayed.png")));
 				// String
 				// examp;e
 				// "seatType1_1"

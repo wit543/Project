@@ -178,6 +178,7 @@ public class choose extends JFrame implements Runnable {
 			// TODO Auto-generated method stub
 			ChooseRound c = new ChooseRound(getListOfRound(),thisClass);
 			c.run();
+			dispose();
 		}
 
 		@Override
