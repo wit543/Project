@@ -38,9 +38,17 @@ public class RoundLabel extends JLabel {
 		
 		JLabel title = new JLabel(round.get(0).getTheater().getType());
 		title.setBackground(Color.RED);
+		title.setHorizontalAlignment(0);
 		title.setOpaque(true);
-		title.setMaximumSize(new Dimension(30,20));
-		info.add(title);
+		
+		JLabel coverTitle = new JLabel();
+		coverTitle.add(title);
+		coverTitle.setMaximumSize(new Dimension(50,20));
+		coverTitle.setHorizontalAlignment(0);
+		coverTitle.setLayout(new BoxLayout(coverTitle, BoxLayout.X_AXIS));
+		coverTitle.setBackground(Color.YELLOW);
+		coverTitle.setOpaque(true);
+		info.add(coverTitle);
 		
 		JLabel rate = new JLabel(String.valueOf(round.get(0).getTheater().getID()));
 		rate.setBackground(Color.WHITE);

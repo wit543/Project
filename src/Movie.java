@@ -2,7 +2,10 @@ import java.awt.Image;
 import java.util.Arrays;
 
 import javax.swing.ImageIcon;
-
+/*
+ * Svae image
+ * time
+ */
 
 public class Movie implements Comparable {
 	private String title;
@@ -114,12 +117,12 @@ public class Movie implements Comparable {
 
 	@Override
 	public String toString() {
-		return "Movie [title=" + title + ", rating=" + rating + ", summery="
-				+ summery + ", rate=" + rate + ", image="
-				+ Arrays.toString(image) + ", detail=" + detail + ", genres="
-				+ genres + ", releaseDay=" + releaseDay + ", Director="
-				+ Director + ", synopis=" + synopis + ", language=" + language
-				+ ", dulation=" + dulation + "]";
+		return title + "#" + rating + "#"
+				+ summery + "#" + rate + ", image="
+				+ Arrays.toString(image) + "#" + detail + "#"
+				+ genres + "#" + releaseDay + "#"
+				+ Director + "#" + synopis + "#" + language
+				+ "#" + dulation;
 	}
 	@Override
 	public int compareTo(Object o) {

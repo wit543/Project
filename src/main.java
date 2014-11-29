@@ -137,10 +137,34 @@ public static void innitAll(){
 			new Time(11, 11, 11), movieList.get(9)));
 	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 			new Time(11, 11, 11), movieList.get(0)));
-	wirteToTextRoundList();
+	writeToTextRoundList();
 }
-public static void wirteToTextRoundList(){
-	File file = new File("src\\save\\roundList");
+public static void writeToTextRoundList(){
+	for(int i =0;i<roundList.size();i++)	{
+		String[] array =roundList.get(i).toString().split("#");
+		for(int j=0;j<array.length;j++){
+			if(array[j].charAt(0)=='['){
+
+				array[j]=array[j].substring(1, array[j].length()-1);
+				String[] arrayInner = array[j].split(", ");
+				for(int k=0;k<arrayInner.length;k++){
+					System.out.print(arrayInner[k]+"@");
+				}
+			}
+			else{
+			System.out.print(array[j]+"#");
+			}
+		}
+		System.out.println();
+	}
+	System.out.println();
+	System.out.println();
+	System.out.println();  
+	for(int i =0;i<roundList.size();i++)	{
+		System.out.println(roundList.get(i));
+	}
+}
+public static void writeToTextMovieList(){
 	for(int i =0;i<movieList.size();i++)	{
 		String[] array =movieList.get(i).toString().split("#");
 		for(int j=0;j<array.length;j++){
@@ -160,9 +184,35 @@ public static void wirteToTextRoundList(){
 	}
 	System.out.println();
 	System.out.println();
-	System.out.println();
-	for(int i =0;i<theaterList.size();i++)	{
+	System.out.println();  
+	for(int i =0;i<movieList.size();i++)	{
 		System.out.println(movieList.get(i));
+	}
+}
+public static void wirteToTextTheaterList(){
+	File file = new File("src\\save\\roundList");
+	for(int i =0;i<theaterList.size();i++)	{
+		String[] array =theaterList.get(i).toString().split("#");
+		for(int j=0;j<array.length;j++){
+			if(array[j].charAt(0)=='['){
+
+				array[j]=array[j].substring(1, array[j].length()-1);
+				String[] arrayInner = array[j].split(", ");
+				for(int k=0;k<arrayInner.length;k++){
+					System.out.print(arrayInner[k]+"@");
+				}
+			}
+			else{
+			System.out.print(array[j]+"#");
+			}
+		}
+		System.out.println();
+	}
+	System.out.println();
+	System.out.println();
+	System.out.println();  
+	for(int i =0;i<theaterList.size();i++)	{
+		System.out.println(theaterList.get(i));
 	}
 }
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {

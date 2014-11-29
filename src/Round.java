@@ -54,19 +54,19 @@ public class Round implements Comparable {
 		if (seatInEachtype.get(type)[row][column].canBook()) {
 			ticketList.add(new Ticket(movie,this,seatInEachtype.get(type)[row][column]));
 			seatInEachtype.get(type)[row][column].book();
-			
-			System.out.println("round");
-			for (int i = 0; i < seatInEachtype.size(); i++) {
-				for (int j = 0; j < seatInEachtype.get(i).length; j++) {
-					for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
-						System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
-					}
-					System.out.println();
-				}
-				System.out.println();
-				System.out.println();
-			}
-			
+		
+//			System.out.println("round");
+//			for (int i = 0; i < seatInEachtype.size(); i++) {
+//				for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+//					for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+//						System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+//					}
+//					System.out.println();
+//				}
+//				System.out.println();
+//				System.out.println();
+//			}
+//			
 			
 			return true;
 		}
@@ -84,29 +84,29 @@ public class Round implements Comparable {
 					seatInEachtype.get(i)[j][k] = new Seat(
 							theater.getTypeOfSeat()[i], theater.getPrice()[i],
 							getSeatInString(i, j, k),new int[]{i,j,k});
-					System.out.print(getSeatInString(i, j, k) + " ");
+			//		System.out.print(getSeatInString(i, j, k) + " ");
 				}
-				System.out.println();
+		//		System.out.println();
 			}
-			System.out.println();
-			System.out.println();
+//			System.out.println();
+//			System.out.println();
 		}
 
 	}
 	public void cancelSeat(int type,int row, int column){
 		seatInEachtype.get(type)[row][column].cancel();
-		System.out.println("Cancel");
-
-		for (int i = 0; i < seatInEachtype.size(); i++) {
-			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
-				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
-					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-			System.out.println();
-		}
+		
+//		System.out.println("Cancel");
+//		for (int i = 0; i < seatInEachtype.size(); i++) {
+//			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+//				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+//					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+//				}
+//				System.out.println();
+//			}
+//			System.out.println();
+//			System.out.println();
+//		}
 	}
 	public void clearSeat(){
 		for (int i = 0; i < seatInEachtype.size(); i++) {
@@ -116,26 +116,39 @@ public class Round implements Comparable {
 						cancelSeat(i, j, k);
 					}
 				}
-				System.out.println();
+//				System.out.println();
 			}
-			System.out.println();
-			System.out.println();
+//			System.out.println();
+//			System.out.println();
 		}
-		
-
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++");
-
+//		
+//
+//		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++");
+//
+//		for (int i = 0; i < seatInEachtype.size(); i++) {
+//			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
+//				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
+//					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+//				}
+//				System.out.println();
+//			}
+//			System.out.println();
+//			System.out.println();
+//		}
+	}
+	private String getseatInEachtypeInString(){
+		String s ="";
 		for (int i = 0; i < seatInEachtype.size(); i++) {
 			for (int j = 0; j < seatInEachtype.get(i).length; j++) {
 				for (int k = 0; k < seatInEachtype.get(i)[j].length; k++) {
-					System.out.print(seatInEachtype.get(i)[j][k].isBooked+ " ");
+					s+=seatInEachtype.get(i)[j][k].toString()+" ";
+					}
 				}
-				System.out.println();
 			}
-			System.out.println();
-			System.out.println();
+		return s;
 		}
-	}
+
+	
 	public int[] convert(int row, int column) {
 		int aToZ = 65;
 		ArrayList<String> list = new ArrayList<String>();
@@ -230,6 +243,14 @@ public class Round implements Comparable {
 	}
 	public ArrayList<Seat[][]> getSeatInEachType(){
 		return seatInEachtype;
+	}
+	
+	@Override
+	public String toString() {
+		return "Round [movie=" + movie + ", currentDay=" + currentDay
+				+ ", start=" + start + ", end=" + end + ", seatInEachtype="
+				+ seatInEachtype + ", ticketList=" + ticketList
+				+ ", theaterID=" + theaterID + ", theater=" + theater + "]";
 	}
 	@Override
 	public int compareTo(Object o) {

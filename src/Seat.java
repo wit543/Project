@@ -2,6 +2,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.imageio.ImageIO;
@@ -137,4 +138,14 @@ public class Seat {
 		setNotBookedImageIcon();
 		isBooked=false;
 	}
+	@Override
+	public String toString() {
+		return "Seat [imageList=" + imageList + ", image=" + image + ", price="
+				+ price + ", type=" + type + ", numberOfPersonThatCanSit="
+				+ numberOfPersonThatCanSit + ", ticket=" + ticket
+				+ ", isBooked=" + isBooked + ", status=" + status + ", ID="
+				+ ID + ", position=" + Arrays.toString(position) + "]";
+	}
+	
+	
 }
