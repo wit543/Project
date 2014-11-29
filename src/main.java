@@ -39,22 +39,13 @@ public static void innitAll(){
 	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
 			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"111111111111111"));
 	ArrayList<ImageIcon[]> imageIconList =new ArrayList<ImageIcon[]>();
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	imageIconList.add(new ImageIcon[5]);
-	
+
 
 		for(int i=0;i<10;i++){
+			imageIconList.add(new ImageIcon[5]);
 			for(int j=0;j<5;j++){
 				try {
-				String location ="D:\\java\\y1s1\\Project\\src\\images\\movie"+(i+1)+"_"+j+".png";
+				String location ="src\\images\\movie"+(i+1)+"_"+j+".png";
 				imageIconList.get(i)[j] = new ImageIcon(ImageIO.read(new File(location)));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -146,8 +137,33 @@ public static void innitAll(){
 			new Time(11, 11, 11), movieList.get(9)));
 	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 			new Time(11, 11, 11), movieList.get(0)));
-	ChooseRound c = new ChooseRound(roundList);
-	c.run();
+	wirteToTextRoundList();
+}
+public static void wirteToTextRoundList(){
+	File file = new File("src\\save\\roundList");
+	for(int i =0;i<movieList.size();i++)	{
+		String[] array =movieList.get(i).toString().split("#");
+		for(int j=0;j<array.length;j++){
+			if(array[j].charAt(0)=='['){
+
+				array[j]=array[j].substring(1, array[j].length()-1);
+				String[] arrayInner = array[j].split(", ");
+				for(int k=0;k<arrayInner.length;k++){
+					System.out.print(arrayInner[k]+"@");
+				}
+			}
+			else{
+			System.out.print(array[j]+"#");
+			}
+		}
+		System.out.println();
+	}
+	System.out.println();
+	System.out.println();
+	System.out.println();
+	for(int i =0;i<theaterList.size();i++)	{
+		System.out.println(movieList.get(i));
+	}
 }
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {
 		ArrayList<Round> newRound = new ArrayList<Round>();

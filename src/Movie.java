@@ -111,9 +111,15 @@ public class Movie implements Comparable {
 		this.dulation = dulation;
 	}
 	
+
 	@Override
 	public String toString() {
-		return Arrays.toString(image) ;
+		return "Movie [title=" + title + ", rating=" + rating + ", summery="
+				+ summery + ", rate=" + rate + ", image="
+				+ Arrays.toString(image) + ", detail=" + detail + ", genres="
+				+ genres + ", releaseDay=" + releaseDay + ", Director="
+				+ Director + ", synopis=" + synopis + ", language=" + language
+				+ ", dulation=" + dulation + "]";
 	}
 	@Override
 	public int compareTo(Object o) {

@@ -69,21 +69,16 @@ import java.util.Arrays;
 	public String getCinemaName(){
 		return cinemaName;
 	}
+
 	@Override
 	public String toString() {
-		return "Theater [numberOfTypeOfSeat=" + numberOfTypeOfSeat
-				+ ", numbeOfRow=" + Arrays.toString(numbeOfRow)
-				+ ", numberOfColumn=" + numberOfColumn + ", price="
-				+ Arrays.toString(price) + ", typeOfSeat="
-				+ Arrays.toString(typeOfSeat) + ", ID=" + ID + ", getID()="
-				+ getID() + ", getTypeOfSeat()="
-				+ Arrays.toString(getTypeOfSeat())
-				+ ", getNumberOfTypeOfSeat()=" + getNumberOfTypeOfSeat()
-				+ ", getNumbeOfRow()=" + Arrays.toString(getNumbeOfRow())
-				+ ", getNumberOfColumn()=" + getNumberOfColumn()
-				+ ", getPrice()=" + Arrays.toString(getPrice())
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return numberOfTypeOfSeat
+				+ "#" + Arrays.toString(numbeOfRow)
+				+ "#" + Arrays.toString(numberOfColumn)
+				+ "#" + cinemaName + "#"
+				+ Arrays.toString(price) + "#"
+				+ Arrays.toString(typeOfSeat) + "#" + ID + "#" + type
+				;
 	}
 	@Override
 	public int compareTo(Object o) {

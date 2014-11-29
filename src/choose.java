@@ -42,6 +42,7 @@ public class choose extends JFrame implements Runnable {
 	private JLabel nextLabel1;
 	private JLabel nextLabel2;
 	private JLabel nextLabel3;
+	private choose thisClass=this;
 	public choose(ArrayList<Movie> movie,ArrayList<Round> round) {
 		this.movie=movie;
 		this.round=round;
@@ -175,7 +176,7 @@ public class choose extends JFrame implements Runnable {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			ChooseRound c = new ChooseRound(getListOfRound(),this);
+			ChooseRound c = new ChooseRound(getListOfRound(),thisClass);
 			c.run();
 		}
 
