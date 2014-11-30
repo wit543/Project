@@ -7,9 +7,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 	public class Theater implements Comparable{
-	private int numberOfTypeOfSeat;
-	private int[]	numbeOfRow;
-	private int[] numberOfColumn;
+
 //[]=type of seat 
 //[][] = diemtiontion of seat
 //		______________________
@@ -28,12 +26,18 @@ import javax.swing.ImageIcon;
 //		dimentionOfTheSeatAndNumBerOfSeat[1][1]=4;
 //		dimentionOfTheSeatAndNumBerOfSeat[2][0]=8;
 //		dimentionOfTheSeatAndNumBerOfSeat[2][1]=1;
+
+		private int[]	numbeOfRow;
+		private int[] numberOfColumn;
+		private int numberOfTypeOfSeat;
+		private double[] price;
+		private String[] typeOfSeat;
 	private String cinemaName;
-	private double[] price;
-	private String[] typeOfSeat;
+	private String type;
+	private String url;
 	private String ID;
 	private static int numberOfTheater=1;
-	private String type;
+
 	private ImageIcon image;
 	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName,String type,String url){
 		this.cinemaName = cinemaName;
@@ -43,6 +47,7 @@ import javax.swing.ImageIcon;
 	this.typeOfSeat = typeOfSeat;
 	this.price = price;
 	this.type = type;
+	this.url=url;
 	this.ID = String.valueOf(numberOfTheater);
 	numberOfTheater++;
 	try {
@@ -91,15 +96,16 @@ import javax.swing.ImageIcon;
 		return cinemaName;
 	}
 
+
 	@Override
 	public String toString() {
-		return numberOfTypeOfSeat
-				+ "#" + Arrays.toString(numbeOfRow)
+		return Arrays.toString(numbeOfRow) 
 				+ "#" + Arrays.toString(numberOfColumn)
-				+ "#" + cinemaName + "#"
-				+ Arrays.toString(price) + "#"
-				+ Arrays.toString(typeOfSeat) + "#" + ID + "#" + type
-				;
+				+ "#" + numberOfTypeOfSeat
+				+ "#" + Arrays.toString(price)  + "#"
+				+ Arrays.toString(typeOfSeat)+ "#"
+				+cinemaName  + "#" + type
+				+ "#" + url ;
 	}
 	@Override
 	public int compareTo(Object o) {

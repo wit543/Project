@@ -131,7 +131,7 @@ public class Movie implements Comparable {
 	@Override
 	public String toString() {
 		return title + "#" + rating + "#"
-				+ summery + "#" + rate + "#image="
+				+ summery + "#" + rate + "#"
 				+ ID+ "#" + detail + "#"
 				+ genres + "#" + releaseDay + "#"
 				+ Director + "#" + synopis + "#" + language

@@ -1,10 +1,10 @@
-a in a#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=1#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#1#
-a in b#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=2#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#2#
-a in c#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=3#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#3#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=4#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#4#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=5#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#5#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=6#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#6#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=7#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#7#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=8#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#8#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=9#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#9#
-a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18, #image=10#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#10#
+a in a#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#1#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#1#
+a in b#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#2#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#2#
+a in c#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#3#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#3#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#4#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#4#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#5#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#5#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#6#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#6#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#7#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#7#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#8#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#8#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#9#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#9#
+a in d#9.8#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#18#10#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#action#10/10/10#Steave Job#ccccccccccccccccccccccccccccccccccccccc#english#277:46:40#10#

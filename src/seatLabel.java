@@ -99,6 +99,7 @@ public class seatLabel extends JLabel {
 		seat.setPayed();
 		booking.getRound().payed(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 		setIcon(seat.getImageIconList().get(0)[2]);
+		setIcon(seat.getImageIconList().get(0)[2]);
 	}
 	public void updateIcon(){
 		seat.cancel();

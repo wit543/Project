@@ -18,68 +18,88 @@ public class main {
 	static ArrayList<Round> roundList = new ArrayList<Round>();
 	static ArrayList<Movie> movieList = new ArrayList<Movie>();
 	static ArrayList<Theater> theaterList = new ArrayList<Theater>();
+	static ArrayList<String[]> ArrayOfMovieList = new ArrayList<String[]>();
+	static ArrayList<String[]> ArrayOfTheaterList = new ArrayList<String[]>();
+	static ArrayList<String[]> ArrayOfRoundList = new ArrayList<String[]>();
 	public static void main(String[] args) {
 
 		innitAll();
 		ArrayList<Round> newRound = sortForMovie(roundList);
-		//choose c = new choose(movieList,roundList);
-	//	c.run();
+	choose c = new choose(movieList,roundList);
+	c.run();
 
 	}
 		
 public static void innitAll(){
-	theaterList.add(new Theater(new int[] { 5, 10, 1 }, new int[]{10,8,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"Normal","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"IMAX","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"3D","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"2D","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"1D","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"vintage","src\\images\\imax.png"));
-	theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-			1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"111111111111111","src\\images\\imax.png"));
-
-
-
 	
 
 
-	readFromTextMovieList();
-	initMoive();
-//
-//	roundList.add(new Round(theaterList.get(0), new Time(10, 10, 10),
-//			new Time(11, 11, 11), movieList.get(0)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(1)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(2)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(3)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(4)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(5)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(6)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(7)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(8)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(9)));
-//	roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
-//			new Time(11, 11, 11), movieList.get(0)));
+
+	//writeToTextTheaterList();
+
+initTheater();
+initMoive();
+initRound();
+
 
 //	writeToTextTheaterList();
 	//writeToTextRoundList();
 }
+public static void initRound(){
+	if(new File("src\\data\\round.txt").exists()){
+	readFromTextRoundList();
+	}
+	else{
+		roundList.add(new Round(theaterList.get(0), new Time(10, 10, 10),
+				new Time(11, 11, 11), movieList.get(0)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(1)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(2)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(3)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(4)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(5)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(6)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(7)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(8)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(9)));
+		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+				new Time(11, 11, 11), movieList.get(0)));
+		writeToTextRoundList();
+	}
+}
+public static void initTheater(){
+	if(new File("src\\data\\theater.txt").exists()){
+	readFromTextTheaterList();	
+	}
+	else{
+		theaterList.add(new Theater(new int[] { 5, 10, 1 }, new int[]{10,8,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"Normal","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"IMAX","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"3D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"2D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"1D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"vintage","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"111111111111111","src\\images\\imax.png"));
+		writeToTextTheaterList();
+	}
+}
 public static void initMoive(){
 
-	if(new File("src\\files\\movie.txt").exists()){
+	if(new File("src\\data\\movie.txt").exists()){
 		readFromTextMovieList();
 	}
 	else{
@@ -96,6 +116,7 @@ public static void initMoive(){
 					System.out.println("Fail");
 				}
 			}
+		}
 		movieList.add(new Movie("a in a", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18, imageIconList.get(0),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
@@ -156,28 +177,58 @@ public static void initMoive(){
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
+		writeToTextMovieList();
+		
+	}
+}
+public static void readFromTextRoundList(){
+
+	File file = new File("src\\data\\round.txt");
+	try{
+		if(file.exists()){
+			Scanner readRound = new Scanner(file);
+			while (readRound.hasNext()){
+				ArrayOfRoundList.add(readRound.nextLine().split("#"));
+				roundList.add(new Round(theaterList.get(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[0])), new Time(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[0]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[1]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[2])), new Time(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[0]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[1]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[2])), movieList.get(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[3])-1)));
+			}
+			readRound.close();
 		}
+	}
+
+	catch(IOException e){
+		
+	}
+	for(int i=0;i<roundList.size();i++){
+		System.out.println(roundList.get(i));
+	}
+	for(int i =0;i<ArrayOfRoundList.size();i++){
+		System.out.println("000000000000000000000000000");
+		System.out.println(Arrays.toString(ArrayOfRoundList.get(i)));
 	}
 }
 public static void writeToTextRoundList(){
+	File file = new File("src\\data\\round.txt");
+	String out = "";
 	for(int i =0;i<roundList.size();i++)	{
 		String[] array =roundList.get(i).toString().split("#");
 		for(int j=0;j<array.length;j++){
-			if(array[j].charAt(0)=='['){
 
-				array[j]=array[j].substring(1, array[j].length()-1);
-				String[] arrayInner = array[j].split(", ");
-				for(int k=0;k<arrayInner.length;k++){
-					System.out.print(arrayInner[k]+"@");
-				}
-			}
-			else{
-			System.out.print(array[j]+"#");
-			}
+			out+=array[j]+"#";
+			
 		}
-		System.out.println();
+		out+="\r\n";
 	}
-	System.out.println();
+	try{
+		FileWriter fw =new FileWriter(file);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.print(out);
+		pw.close();
+		fw.close();
+	}catch(IOException e){
+		
+	}
+
+	System.out.println(out);
 	System.out.println();
 	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
 	for(int i =0;i<roundList.size();i++)	{
@@ -185,42 +236,45 @@ public static void writeToTextRoundList(){
 	}
 	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
 }
-static ArrayList<String[]> ArrayOfMovieList = new ArrayList<String[]>();
+
 public static void readFromTextMovieList(){
-	File movie = new File("src\\files\\movie.txt");
+	File movie = new File("src\\data\\movie.txt");
 	try{
 		if(movie.exists()){
 			Scanner readMovie = new Scanner(movie);
 			while (readMovie.hasNext()){
-				ArrayOfMovieList.add(readMovie.nextLine().split("#"));
+				String input = readMovie.nextLine();
+				ArrayOfMovieList.add(input.split("#"));
 				ImageIcon[] imageIconList =new ImageIcon[5];
 				for(int j=0;j<5;j++){
 					try {
-					String location ="src\\images\\movie"+(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[5])+"_"+j+".png";
-					imageIconList[j] = new ImageIcon(ImageIO.read(new File(location)));
+					String location ="src\\images\\movie"+(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[4])+"_"+j+".png";
+				imageIconList[j] = new ImageIcon(ImageIO.read(new File(location)));
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 						System.out.println("Fail");
 					}
 				}
-				Day d = new Day(Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[6].split("/")[0]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[6].split("/")[1]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[6].split("/")[2]));
-				Time t = new Time(Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[10].split(":")[0]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[10].split(":")[1]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[10].split(":")[2]));
-				movieList.add(new Movie(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[0], Double.parseDouble(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[1]),ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[2], Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[3]), imageIconList, ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[5], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[6], d, ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[7], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[8], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[9], t));
+				Day d = new Day(Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[7].split("/")[0]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[7].split("/")[1]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[7].split("/")[2]));
+				Time t = new Time(Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[11].split(":")[0]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[11].split(":")[1]),Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[11].split(":")[2]));
+				movieList.add(new Movie(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[0], Double.parseDouble(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[1]),ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[2], Integer.parseInt(ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[3]), imageIconList, ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[5], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[6], d, ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[8], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[9], ArrayOfMovieList.get(ArrayOfMovieList.size()-1)[10], t));
 			}
 			readMovie.close();
 		}
+		
 	}
 	catch(IOException e){
 		
 	}
-	for(int i =0;i<ArrayOfMovieList.size();i++){
-		System.out.println("000000000000000000000000000");
-		System.out.println(Arrays.toString(ArrayOfMovieList.get(i)));
-	}
+	
+//	for(int i =0;i<ArrayOfMovieList.size();i++){
+//		System.out.println("000000000000000000000000000");
+//		System.out.println(Arrays.toString(ArrayOfMovieList.get(i)));
+//	}
 }
 public static void writeToTextMovieList(){
-	File movie = new File("src\\files\\movie.txt");
+	File movie = new File("src\\data\\movie.txt");
 	String out="";
 	for(int i =0;i<movieList.size();i++)	{
 		String[] array =movieList.get(i).toString().split("#");
@@ -248,17 +302,55 @@ public static void writeToTextMovieList(){
 	}catch(IOException e){
 		
 	}
-	System.out.println(out);
-	System.out.println();
-	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-	for(int i =0;i<movieList.size();i++)	{
-		System.out.println(movieList.get(i));
+
+}
+public static void readFromTextTheaterList(){
+
+	File file = new File("src\\data\\theater.txt");
+	try{
+		if(file.exists()){
+			Scanner readTheater = new Scanner(file);
+			while (readTheater.hasNext()){
+				String input = readTheater.nextLine();
+				ArrayOfTheaterList.add(input.split("#"));
+				String[] numbeOfRowString = ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[0].split("@");
+				int[] numberOfRow=new int[Integer.parseInt(ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[2])];
+				String[] numberOfColumnString = ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[1].split("@");
+				int[] numberOfColumn=new int[Integer.parseInt(ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[2])];
+				String[] typeOfSeat=ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[4].split("@");
+				String[] priceString = ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[3].split("@");
+				double[] price=new double[Integer.parseInt(ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[2])];
+				for(int i=0;i<Integer.parseInt(ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[2]);i++){
+					numberOfRow[i]=Integer.parseInt(numbeOfRowString[i]);
+					numberOfColumn[i]=Integer.parseInt(numberOfColumnString[i]);
+					price[i]=Double.parseDouble(priceString[i]);
+				}
+				theaterList.add(new Theater(numberOfRow, numberOfColumn, Integer.parseInt(ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[2]), price, typeOfSeat, ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[5],ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[6], ArrayOfTheaterList.get(ArrayOfTheaterList.size()-1)[7]));
+
+		//		theaterList.add(new Theater(numberOfRow, numberOfColumn, numberOfTypeOfSeat, price, typeOfSeat, input, type, url))
+			}
+			readTheater.close();
+		}
+//		System.out.println("0000000000000000000000000000000000000000");
+//		for(int i=0;i<theaterList.size();i++){
+//			System.out.println(theaterList.get(i).toString());
+//		}
+//		System.out.println("0000000000000000000000000000000000000000");
 	}
-	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
+	catch(IOException e){
+		
+	}
+	for(int i =0;i<ArrayOfMovieList.size();i++){
+		System.out.println("000000000000000000000000000");
+		System.out.println(Arrays.toString(ArrayOfMovieList.get(i)));
+	}
+
 }
 public static void writeToTextTheaterList(){
-	File file = new File("src\\save\\roundList");
+	File file = new File("src\\data\\theater.txt");
+	String out = "";
 	for(int i =0;i<theaterList.size();i++)	{
+		System.out.println(theaterList.get(i).toString());
 		String[] array =theaterList.get(i).toString().split("#");
 		for(int j=0;j<array.length;j++){
 			if(array[j].charAt(0)=='['){
@@ -266,22 +358,36 @@ public static void writeToTextTheaterList(){
 				array[j]=array[j].substring(1, array[j].length()-1);
 				String[] arrayInner = array[j].split(", ");
 				for(int k=0;k<arrayInner.length;k++){
-					System.out.print(arrayInner[k]+"@");
+					if(k<arrayInner.length-1){
+					out+=(arrayInner[k]+"@");
+					}
+					else{
+						out+=(arrayInner[k]+"#");
+					}
+						
 				}
+			
 			}
 			else{
-			System.out.print(array[j]+"#");
+			out+=(array[j]+"#");
 			}
+			
 		}
-		System.out.println();
+		out+="\r\n";
 	}
-	System.out.println();
-	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-	for(int i =0;i<theaterList.size();i++)	{
-		System.out.println(theaterList.get(i));
+	try{
+		FileWriter fw =new FileWriter(file);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.print(out);
+		pw.close();
+		fw.close();
+	}catch(IOException e){
+		
 	}
-	System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-}
+
+		System.out.println(out);
+
+	}
 	public static ArrayList<Round> sortForMovie(ArrayList<Round> round) {
 		ArrayList<Round> newRound = new ArrayList<Round>();
 		Collections.sort(round);

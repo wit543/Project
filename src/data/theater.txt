@@ -1,0 +1,7 @@
+5@10@1#10@8@5#3#1.0@2.0@3.0#normal@normal@normal#SKE#Normal#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#normal@normal@normal#SKE#IMAX#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#normal@normal@normal#SKE#3D#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#a@b@c#SKE#2D#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#a@b@c#SKE#1D#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#a@b@c#SKE#vintage#src\images\imax.png#
+3@3@2#10@10@5#3#1.0@2.0@3.0#a@b@c#SKE#111111111111111#src\images\imax.png#

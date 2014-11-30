@@ -252,12 +252,10 @@ public class Round implements Comparable {
 		return seatInEachtype;
 	}
 	
+
 	@Override
 	public String toString() {
-		return ID+", "+movie.getID() + ", " + currentDay
-				+ ", " + start + ", " + end + ", "
-				+ seatInEachtype + ", " + ticketList
-				+ ", " + theater.getID() ;
+		return  theater.getID()+"#"+start+"#"+end+"#"+movie.getID();
 	}
 	@Override
 	public int compareTo(Object o) {
