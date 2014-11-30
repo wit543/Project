@@ -1,5 +1,10 @@
-	import java.util.ArrayList;
+	import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 	public class Theater implements Comparable{
 	private int numberOfTypeOfSeat;
@@ -29,7 +34,8 @@ import java.util.Arrays;
 	private String ID;
 	private static int numberOfTheater=1;
 	private String type;
-	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName,String type){
+	private ImageIcon image;
+	Theater(int[] numberOfRow,int[] numberOfColumn,int numberOfTypeOfSeat, double[] price,String[] typeOfSeat,String cinemaName,String type,String url){
 		this.cinemaName = cinemaName;
 	this.numbeOfRow=numberOfRow;
 	this.numberOfColumn =numberOfColumn;
@@ -39,6 +45,21 @@ import java.util.Arrays;
 	this.type = type;
 	this.ID = String.valueOf(numberOfTheater);
 	numberOfTheater++;
+	try {
+		try {
+
+			image = new ImageIcon(ImageIO.read(new File(url)));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Fail");
+			}
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	}
+	public ImageIcon getImageIcon(){
+		return image;
 	}
 	public String getType(){
 		return type;

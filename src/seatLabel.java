@@ -27,6 +27,9 @@ public class seatLabel extends JLabel {
 	public String getSeatNumber(){
 		return seat.getID();
 	}
+	public Seat getSeat(){
+		return seat;
+	}
 	private class seatMouseListen implements MouseListener{
 
 		@Override
@@ -56,28 +59,32 @@ public class seatLabel extends JLabel {
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			System.out.println("Mouse Released : " + seatlabel);
 			if(seat.canBook()){
 				booking.getRound().booking(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 				setIcon(seat.getImageIcon());
 				booking.getBookedList().add(seat);
 			}
-			else{
+			else if(seat.getStatus().equals("booked")){
 				seat.cancel();
 				booking.getRound().cancelSeat(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
 				setIcon(seat.getImageIcon());
+				System.out.println(booking.searchIndexOFSeat(seat));
+				booking.getBookedList().remove(booking.searchIndexOFSeat(seat));
 			}
+			setIcon(seat.getImageIcon());
 			booking.updateInfo();
-			for (int i = 0; i < booking.getRound().getSeatInEachType().size(); i++) {
-				for (int j = 0; j < booking.getRound().getSeatInEachType().get(i).length; j++) {
-					for (int k = 0; k < booking.getRound().getSeatInEachType().get(i)[j].length; k++) {
-						System.out.print(booking.getRound().getSeatInEachType().get(i)[j][k].isBooked+" ");
-					}
-					System.out.println();
-				}
-				System.out.println();
-			}
-				System.out.println(booking.getRound().getTicketList().toString());
+			System.out.println(seat.getPosition()[0]+" "+seat.getPosition()[1]+" "+seat.getPosition()[2]);
+			System.out.println(booking.getRound().getSeatInEachType().get(seat.getPosition()[0])[seat.getPosition()[1]][seat.getPosition()[2]].getStatus()+" ");
+//			for (int i = 0; i < booking.getRound().getSeatInEachType().size(); i++) {
+//				for (int j = 0; j < booking.getRound().getSeatInEachType().get(i).length; j++) {
+//					for (int k = 0; k < booking.getRound().getSeatInEachType().get(i)[j].length; k++) {
+//						System.out.print(booking.getRound().getSeatInEachType().get(i)[j][k].getStatus()+" ");
+//					}
+//					System.out.println();
+//				}
+//				System.out.println();
+//			}
+//				System.out.println(booking.getRound().getTicketList().toString());
 			
 		}
 
@@ -85,8 +92,13 @@ public class seatLabel extends JLabel {
 	public void cancel(){
 		seat.cancel();
 		booking.getRound().cancelSeat(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
-		setIcon(seat.getImageIcon());
+		setIcon(seat.getImageIconList().get(0)[1]);
 
+	}
+	public void payed(){
+		seat.setPayed();
+		booking.getRound().payed(seat.getPosition()[0], seat.getPosition()[1],seat.getPosition()[2]);
+		setIcon(seat.getImageIconList().get(0)[2]);
 	}
 	public void updateIcon(){
 		seat.cancel();
@@ -94,8 +106,8 @@ public class seatLabel extends JLabel {
 	
 			setIcon(seat.getImageIcon());
 		//	setIcon(new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png"))));
-			System.out.println("UpdateIcon : " + this);
-			System.out.println("ssssssssssss");
+		
+			 
 		
 
 	}

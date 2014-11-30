@@ -1,47 +1,28 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.GridLayout;
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JCheckBox;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JTabbedPane;
-
-import java.awt.Font;
-import java.awt.Color;
-
-import javax.swing.UIManager;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Window.Type;
-import java.awt.Toolkit;
-import java.awt.Dialog.ModalExclusionType;
-import java.io.File;
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 
 
-public class RegistMember extends JFrame {
+public class RegistMember extends JFrame implements Runnable {
 
 	private JPanel contentPane;
 	private JTextField Name_1;
@@ -78,27 +59,24 @@ public class RegistMember extends JFrame {
 	private JTextField School;
 	private JTextField Year;
 	private int memberclass;
-	private static int ID=000;
+	private static int ID=1000;
 	private String gender_1,gender_2,gender_3;
 	public static ArrayList<Member> memberList;
 	private int confirm;
-	private File memberfile;
+	private File regularfile,studentfile,elderlyfile,memberfile;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegistMember frame = new RegistMember();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		RegistMember main = new RegistMember();
+		main.run();
 	}
+	
+	public void run(){
+		super.setVisible(true);
+	}
+	
 
 	/**
 	 * Create the frame.
@@ -107,12 +85,15 @@ public class RegistMember extends JFrame {
 		memberList = new ArrayList<Member>();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistMember.class.getResource("/images/register.png")));
 		setTitle("Register");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(180, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		//check text file
+		ID=1000;
+		readText();
 
 		ArrayList<Integer> day = new ArrayList<Integer>();
 		for(int i=1;i<=31;i++){
@@ -125,17 +106,17 @@ public class RegistMember extends JFrame {
 		}
 
 		ArrayList<Integer> year = new ArrayList<Integer>();
-		for(int i=1956;i<=1996;i++){
+		for(int i=1996;i>=1956;i--){
 			year.add(i);
 		}
 
 		ArrayList<Integer> yearst = new ArrayList<Integer>();
-		for(int i=1992;i<=2008;i++){
+		for(int i=2008;i>=1992;i--){
 			yearst.add(i);
 		}
 
 		ArrayList<Integer> yearold = new ArrayList<Integer>();
-		for(int i=1920;i<=1955;i++){
+		for(int i=1955;i>=1920;i--){
 			yearold.add(i);
 		}
 
@@ -146,7 +127,7 @@ public class RegistMember extends JFrame {
 		tabbedPane.setBounds(2, 11, 782, 550);
 		contentPane.add(tabbedPane);
 
-
+		//Regular Member Tab
 		JPanel regularpanel = new JPanel();
 		regularpanel.setBackground(new Color(153, 204, 204));
 		tabbedPane.addTab("Regular Member", null, regularpanel, null);
@@ -297,6 +278,8 @@ public class RegistMember extends JFrame {
 		btnCancel_1.setBounds(412, 464, 106, 36);
 		regularpanel.add(btnCancel_1);
 
+		
+		//Student Member Tab
 		JPanel studentpanel = new JPanel();
 		studentpanel.setBackground(new Color(204, 255, 255));
 		tabbedPane.addTab("Student Member", null, studentpanel, null);
@@ -475,6 +458,8 @@ public class RegistMember extends JFrame {
 		btnCancel_2.setBounds(412, 464, 106, 36);
 		studentpanel.add(btnCancel_2);
 
+		
+		//Elderly Member Tab
 		JPanel elderlypanel = new JPanel();
 		elderlypanel.setBackground(new Color(204, 255, 204));
 		tabbedPane.addTab("Elderly Member", null, elderlypanel, null);
@@ -708,8 +693,50 @@ public class RegistMember extends JFrame {
 									Phonenum_1.getText(),0.8,0,"Regular",Province_1.getText(),Postal_1.getText(),Country_1.getText(),District_1.getText(),
 									Email_1.getText(),120);
 							memberList.add(newmember);
-							readText();
-							addText();
+							showsuccess();
+							dispose();
+							//add text
+							try{
+								Scanner input = new Scanner(regularfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+"\r\n";
+								}
+								regularfile = new File("src/data/regular.txt");
+								FileWriter fw = new FileWriter(regularfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_1.getText()+" "+LastName_1.getText()+" "+gender_1+" "+Integer.parseInt(Age_1.getText())+" "+NationID_1.getText()+" "+
+										Phonenum_1.getText()+" "+0.8+" "+0+" "+"Regular"+" "+Province_1.getText()+" "+Postal_1.getText()+" "+Country_1.getText()+" "+District_1.getText()+" "+
+										Email_1.getText()+" "+120);
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
+							try{
+								Scanner input = new Scanner(memberfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+"\r\n";
+								}
+								memberfile = new File("src/data/member.txt");
+								FileWriter fw = new FileWriter(memberfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_1.getText()+" "+LastName_1.getText()+" "+gender_1+" "+Integer.parseInt(Age_1.getText())+" "+NationID_1.getText()+" "+
+										Phonenum_1.getText()+" "+0.8+" "+0+" "+"Regular"+" "+Province_1.getText()+" "+Postal_1.getText()+" "+Country_1.getText()+" "+District_1.getText()+" "+
+										Email_1.getText()+" "+120);
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
+
 						}
 
 					}
@@ -723,6 +750,7 @@ public class RegistMember extends JFrame {
 
 		btnCancel_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				dispose();
 			}
 		});
 
@@ -742,6 +770,49 @@ public class RegistMember extends JFrame {
 									Phonenum_2.getText(),0.7,0,"Student",Province_2.getText(),Postal_2.getText(),Country_2.getText(),District_2.getText(),
 									Email_2.getText(),100,StudentID.getText(),School.getText(),Year.getText());
 							memberList.add(newmember);
+							showsuccess();
+							dispose();
+							//add text
+							try{
+								Scanner input = new Scanner(studentfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.next()+" "+input.next()+" "+input.next()+"\r\n";
+								}
+								studentfile = new File("src/data/student.txt");
+								FileWriter fw = new FileWriter(studentfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_2.getText()+" "+LastName_2.getText()+" "+gender_2+" "+Integer.parseInt(Age_2.getText())+" "+NationID_2.getText()+" "+
+										Phonenum_2.getText()+" "+0.7+" "+0+" "+"Student"+" "+Province_2.getText()+" "+Postal_2.getText()+" "+Country_2.getText()+" "+District_2.getText()+" "+
+										Email_2.getText()+" "+100+" "+StudentID.getText()+" "+School.getText()+" "+Year.getText());
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
+							try{
+								Scanner input = new Scanner(memberfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+"\r\n";
+								}
+								memberfile = new File("src/data/member.txt");
+								FileWriter fw = new FileWriter(memberfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_2.getText()+" "+LastName_2.getText()+" "+gender_2+" "+Integer.parseInt(Age_2.getText())+" "+NationID_2.getText()+" "+
+										Phonenum_2.getText()+" "+0.7+" "+0+" "+"Student"+" "+Province_2.getText()+" "+Postal_2.getText()+" "+Country_2.getText()+" "+District_2.getText()+" "+
+										Email_2.getText()+" "+100);
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
 						}
 					}
 
@@ -753,6 +824,7 @@ public class RegistMember extends JFrame {
 
 		btnCancel_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				dispose();
 			}
 		});
 
@@ -772,6 +844,51 @@ public class RegistMember extends JFrame {
 									Phonenum_3.getText(),0.6,0,"Elderly",Province_3.getText(),Postal_3.getText(),Country_3.getText(),District_3.getText(),
 									Email_3.getText(),90);
 							memberList.add(newmember);
+							showsuccess();
+							dispose();
+							//add text
+
+							try{
+								Scanner input = new Scanner(elderlyfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+"\r\n";
+								}
+								elderlyfile = new File("src/data/elderly.txt");
+								FileWriter fw = new FileWriter(elderlyfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_3.getText()+" "+LastName_3.getText()+" "+gender_3+" "+Integer.parseInt(Age_3.getText())+" "+NationID_3.getText()+" "+
+										Phonenum_3.getText()+" "+0.6+" "+0+" "+"Elderly"+" "+Province_3.getText()+" "+Postal_3.getText()+" "+Country_3.getText()+" "+District_3.getText()+" "+
+										Email_3.getText()+" "+90);
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
+							
+							try{
+								Scanner input = new Scanner(memberfile);
+								String data="";
+								while(input.hasNext()){
+									data += input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextInt()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+" "+input.nextInt()+" "+input.next()+" "+
+											input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.next()+" "+input.nextDouble()+"\r\n";
+								}
+								memberfile = new File("src/data/member.txt");
+								FileWriter fw = new FileWriter(memberfile);
+								PrintWriter pw = new PrintWriter(fw);
+								pw.println(data+ID+""+" "+Name_3.getText()+" "+LastName_3.getText()+" "+gender_3+" "+Integer.parseInt(Age_3.getText())+" "+NationID_3.getText()+" "+
+										Phonenum_3.getText()+" "+0.6+" "+0+" "+"Elderly"+" "+Province_3.getText()+" "+Postal_3.getText()+" "+Country_3.getText()+" "+District_3.getText()+" "+
+										Email_3.getText()+" "+90);
+
+								pw.close();
+								fw.close();
+
+							} catch(Exception e){
+
+							}
 						}
 					}
 
@@ -783,12 +900,13 @@ public class RegistMember extends JFrame {
 
 		btnCancel_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MemberInformation inform = new MemberInformation();
-				inform.run();
+				dispose();
 			}
 		});	
 	}
 
+	
+	//Dialog Method
 	public void showDialog(){
 		JOptionPane.showMessageDialog(this, "Please fill in all required fields.", "Warning", JOptionPane.PLAIN_MESSAGE);
 	}
@@ -798,38 +916,153 @@ public class RegistMember extends JFrame {
 
 	}
 	
-	public void addText(){
-		memberfile = new File("member.txt");
-		try{
-			FileWriter fw = new FileWriter(memberfile);
-			PrintWriter pw = new PrintWriter(fw);
-			for(int i=0;i<this.memberList.size();i++){
-			pw.println(memberList.get(i).getId()+" "+memberList.get(i).getName()+" "+memberList.get(i).getLastname()+" "+memberList.get(i).getGender()+" "+memberList.get(i).getAge()+" "+memberList.get(i).getNationID()+" "+memberList.get(i).getPhonenumber()+" "+memberList.get(i).getDicountRate()+" "+
-					memberList.get(i).getPoint()+" "+memberList.get(i).getType()+" "+memberList.get(i).getProvince()+" "+memberList.get(i).getPostal()+" "+memberList.get(i).getCountry()+" "+memberList.get(i).getDistrict()+" "+memberList.get(i).getEmail()+" "+memberList.get(i).getMemberPrice()+"\n");
-			}
-			pw.close();
-			fw.close();
-			
-		} catch(Exception e){
-			
-		}
-		
+	public void showsuccess(){
+		JOptionPane.showMessageDialog(this, "                 Registion Successful !!", "Success", JOptionPane.PLAIN_MESSAGE);
 	}
+
 	
-	public void readText(){
+	//clear Method
+	public void clearMember(){
+
+		regularfile = new File("src/data/regular.txt");
 		try{
-			if(memberfile.exists()){
-				Scanner input = new Scanner(memberfile);
-				while(input.hasNext()){
-				Member member= new Member(input.next(),input.next(),input.next(),input.next(),input.nextInt(),input.next(),input.next(),input.nextDouble(),input.nextInt(),input.next(),
-						input.next(),input.next(),input.next(),input.next(),input.next(),input.nextDouble());
-				this.memberList.add(member);
-				}
-			}
-			
+			FileWriter fw = new FileWriter(regularfile);
+			fw.write("");
+			fw.close();
 		}
 		catch(Exception e){
-			
+
+		}
+		studentfile = new File("src/data/student.txt");
+		try{
+			FileWriter fw = new FileWriter(studentfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		elderlyfile = new File("src/data/elderly.txt");
+		try{
+			FileWriter fw = new FileWriter(elderlyfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		memberfile = new File("src/data/member.txt");
+		try{
+			FileWriter fw = new FileWriter(memberfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		memberList.clear();
+		ID=1000;
+	}
+
+	public void clearRegularMember(){
+
+		regularfile = new File("src/data/regular.txt");
+		try{
+			FileWriter fw = new FileWriter(regularfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		int index=0;
+		for(int i=0;i<memberList.size();i++){
+			if(memberList.get(i-index).getType().equals("Regular")){
+				memberList.remove(i-index);
+				index=1;
+			}
 		}
 	}
+	
+	public void clearStudentMember(){
+
+		studentfile = new File("src/data/student.txt");
+		try{
+			FileWriter fw = new FileWriter(studentfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		int index=0;
+		for(int i=0;i<memberList.size();i++){
+			if(memberList.get(i-index).getType().equals("Student")){
+				memberList.remove(i-index);
+				index=1;
+			}
+		}
+	}
+	
+	public void clearElderlyMember(){
+
+		elderlyfile = new File("src/data/elderly.txt");
+		try{
+			FileWriter fw = new FileWriter(elderlyfile);
+			fw.write("");
+			fw.close();
+		}
+		catch(Exception e){
+
+		}
+		int index=0;
+		for(int i=0;i<memberList.size();i++){
+			if(memberList.get(i-index).getType().equals("Elderly")){
+				memberList.remove(i-index);
+				index=1;
+			}
+		}
+	}
+	
+	//read text file
+	public void readText(){
+		regularfile = new File("src/data/regular.txt");
+		studentfile = new File("src/data/student.txt");
+		elderlyfile = new File("src/data/elderly.txt");
+		memberfile = new File("src/data/member.txt");
+		try{
+			String data="";
+			Scanner input1 = new Scanner(regularfile);
+			Scanner input2 = new Scanner(studentfile);
+			Scanner input3 = new Scanner(elderlyfile);
+			Scanner input4 = new Scanner(memberfile);
+			while(input1.hasNext()){
+				MemberRegular member= new MemberRegular(input1.next(),input1.next(),input1.next(),input1.next(),input1.nextInt(),input1.next(),input1.next(),input1.nextDouble(),input1.nextInt(),input1.next(),
+						input1.next(),input1.next(),input1.next(),input1.next(),input1.next(),input1.nextDouble());
+				memberList.add(member);
+				
+			}
+			while(input2.hasNext()){
+				MemberStudent member= new MemberStudent(input2.next(),input2.next(),input2.next(),input2.next(),input2.nextInt(),input2.next(),input2.next(),input2.nextDouble(),input2.nextInt(),input2.next(),
+						input2.next(),input2.next(),input2.next(),input2.next(),input2.next(),input2.nextDouble(),input2.next(),input2.next(),input2.next());
+				memberList.add(member);
+				
+			}
+			while(input3.hasNext()){
+				MemberElderly member= new MemberElderly(input3.next(),input3.next(),input3.next(),input3.next(),input3.nextInt(),input3.next(),input3.next(),input3.nextDouble(),input3.nextInt(),input3.next(),
+						input3.next(),input3.next(),input3.next(),input3.next(),input3.next(),input3.nextDouble());
+				memberList.add(member);
+				
+			}
+			while(input4.hasNext()){
+				Member member= new Member(input4.next(),input4.next(),input4.next(),input4.next(),input4.nextInt(),input4.next(),input4.next(),input4.nextDouble(),input4.nextInt(),input4.next(),
+						input4.next(),input4.next(),input4.next(),input4.next(),input4.next(),input4.nextDouble());
+				ID++;
+			}
+		}
+		catch(Exception e){
+
+		}
+	}
+
 }

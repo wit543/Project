@@ -19,10 +19,10 @@ public class Seat {
 	private double price;
 	private String type;
 	private int numberOfPersonThatCanSit;
-	Ticket ticket;
+	private Ticket ticket;
 	boolean isBooked;
-	String status;
-	String ID;
+	private String status;
+	private String ID;
 	private int[] position;
 
 	Seat(String type, double price, String ID,int[] position) {
@@ -60,6 +60,7 @@ public class Seat {
 				// "seatType1_1"
 			} catch (Exception e) {
 				// TODO: handle exception
+				System.out.println("fail");
 			}
 			try {
 				array[3] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatUnBooked.png")));
@@ -69,6 +70,23 @@ public class Seat {
 			imageList.add(array);
 		}
 		setNotBookedImageIcon();
+		System.out.println(ID);
+	}
+	public ArrayList<ImageIcon[]> getImageIconList(){
+		return imageList;
+	}
+	public boolean equal(Seat other){
+		if(this.ID.equals(other.ID))
+			return true;
+		return false;
+	}
+	public boolean equal(ArrayList<Seat> other){
+		for(int i=0;i<other.size();i++){
+			if(this.equal(other.get(i))){
+				return true;
+			}
+		}
+		return false;
 	}
 	public String getType(){
 		return type;
@@ -86,7 +104,10 @@ public class Seat {
 	}
 
 	public boolean canBook() {
-		return !isBooked;
+		if(status.equals("notBooked")){
+			return true;
+		}
+		return false;
 	}
 
 	public String getPriceAndType() {
@@ -114,7 +135,11 @@ public class Seat {
 		return image;
 
 	}
-
+	public void setPayed(){
+		status="payed";
+		isBooked=true;
+		setPayedImageIcon();
+	}
 	public void setBookedImageIcon() {
 		image = imageList.get(convertTypeToInt(type))[0];
 	}
@@ -123,7 +148,7 @@ public class Seat {
 		image = imageList.get(convertTypeToInt(type))[1];
 	}
 
-	public void setSselectedImageIcon() {
+	public void setPayedImageIcon() {
 		image = imageList.get(convertTypeToInt(type))[2];
 	}
 

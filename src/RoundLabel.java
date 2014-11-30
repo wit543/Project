@@ -25,6 +25,7 @@ public class RoundLabel extends JLabel {
 		showImage.setBackground(Color.RED);
 		showImage.setOpaque(true);
 		showImage.setBounds(10, 10, 80, 80);
+		showImage.setIcon(round.get(0).getTheater().getImageIcon());
 		add(showImage);
 		
 		JLabel info = new JLabel();

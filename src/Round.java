@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import JLabel.a;
+
 public class Round implements Comparable {
 	private Movie movie;
 	private Day currentDay =new Day(10,10,10);
@@ -8,6 +10,8 @@ public class Round implements Comparable {
 	private ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
 	private String theaterID;
 	private Theater theater;
+	private String ID="";
+	private static int numberOfRound = 1;
 	// []=row
 	// [][]=column
 
@@ -18,6 +22,8 @@ public class Round implements Comparable {
 		this.movie = movie;
 		this.theaterID = theater.getID(); 
 		this.theater=theater;
+		ID=String.valueOf(numberOfRound);
+		numberOfRound++;
 	}
 	public ArrayList<Ticket> getTicketList(){
 		return ticketList;
@@ -49,6 +55,7 @@ public class Round implements Comparable {
 		}
 		return false;
 	}
+
 	public boolean booking(int type,int row, int column) {
 
 		if (seatInEachtype.get(type)[row][column].canBook()) {
@@ -247,10 +254,10 @@ public class Round implements Comparable {
 	
 	@Override
 	public String toString() {
-		return "Round [movie=" + movie + ", currentDay=" + currentDay
-				+ ", start=" + start + ", end=" + end + ", seatInEachtype="
-				+ seatInEachtype + ", ticketList=" + ticketList
-				+ ", theaterID=" + theaterID + ", theater=" + theater + "]";
+		return ID+", "+movie.getID() + ", " + currentDay
+				+ ", " + start + ", " + end + ", "
+				+ seatInEachtype + ", " + ticketList
+				+ ", " + theater.getID() ;
 	}
 	@Override
 	public int compareTo(Object o) {
@@ -261,7 +268,18 @@ public class Round implements Comparable {
 		return movie.compareTo(((Round) o).getMovie());
 	}
 
+	public void payed(ArrayList<Seat> arrayList){
+		for(int i=0;i<arrayList.size();i++){
+			arrayList.get(i).setPayed();
+			payed(arrayList.get(i).getPosition()[0], arrayList.get(i).getPosition()[1],arrayList.get(i).getPosition()[2]);
+		}
+		
+	}
+	public void payed(int i,int j,int k){
+		
+			seatInEachtype.get(i)[j][k].setPayed();
 
-
+		
+	}
 	
 }

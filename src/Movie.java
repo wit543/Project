@@ -20,6 +20,8 @@ public class Movie implements Comparable {
 	private String synopis;
 	private String language;
 	private Time dulation;
+	private String ID;
+	private static int numberOfMovie=1;
 	public String getTitle() {
 		return title;
 	}
@@ -93,8 +95,8 @@ public class Movie implements Comparable {
 	public void setDulation(Time dulation) {
 		this.dulation = dulation;
 	}
-	public Movie(){
-		
+	public String getID(){
+		return ID;
 	}
 	public Movie(String title, double rating, String summery, int rate,
 			ImageIcon[] image, String detail, String genres, Day releaseDay,
@@ -112,17 +114,28 @@ public class Movie implements Comparable {
 		this.synopis = synopis;
 		this.language = language;
 		this.dulation = dulation;
+		this.ID=String.valueOf(numberOfMovie);
+		numberOfMovie++;
 	}
 	
 
-	@Override
-	public String toString() {
+	public String toString1() {
 		return title + "#" + rating + "#"
 				+ summery + "#" + rate + ", image="
 				+ Arrays.toString(image) + "#" + detail + "#"
 				+ genres + "#" + releaseDay + "#"
 				+ Director + "#" + synopis + "#" + language
 				+ "#" + dulation;
+	}
+	
+	@Override
+	public String toString() {
+		return title + "#" + rating + "#"
+				+ summery + "#" + rate + "#image="
+				+ ID+ "#" + detail + "#"
+				+ genres + "#" + releaseDay + "#"
+				+ Director + "#" + synopis + "#" + language
+				+ "#" + dulation + "#" + ID;
 	}
 	@Override
 	public int compareTo(Object o) {

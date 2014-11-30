@@ -1,0 +1,2 @@
+1001 Gun happy Male 19 111002255 0800000000 0.8 0 Regular Bangkok 11002 Thailand thai gunhappy@mail.com 120.0
+1002 Wit  Pmon Male 20 100000000 0855555555 0.7 0 Student Non 5555 Thai thai wit@mail.com 100

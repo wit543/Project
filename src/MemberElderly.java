@@ -10,4 +10,8 @@ public class MemberElderly extends Member {
 				 province,postal,country, district, email, memberPrice);
 
 	}
+	public String toString() {
+		return super.toString()+" Point: "+this.getPoint()+" NationID: "+this.getNationID()+" Email: "+this.getEmail()+" Country: "+this.getCountry()+" Province: "+this.getProvince()
+				+" District: "+this.getDistrict()+" ZIP code: "+this.getPostal();
+	}
 }
