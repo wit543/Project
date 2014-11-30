@@ -41,7 +41,9 @@ public class Seat {
 		for (int i = 0; i < numberOfType; i++) {
 			ImageIcon[] array = new ImageIcon[4];
 			try {
-				array[0] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatBooked.png")).getScaledInstance(200, 400, Image.SCALE_SMOOTH));
+				array[0] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatBooked.png")));
+				//array[0] = new ImageIcon(ImageIO.read(new File("src\\images\\normalSeatBooked.png")).getScaledInstance(200, 400, Image.SCALE_SMOOTH));
+
 				// String
 				// examp;e
 				// "seatType1_1"

@@ -67,6 +67,40 @@ public class choose extends JFrame implements Runnable {
 		mainLabel.setIcon(currentImage[4]);
 		mainLabel.setBackground(Color.BLUE);
 		mainLabel.setOpaque(true);
+		mainLabel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				MovieInfoFrame p = new MovieInfoFrame(movie.get(currentPosition));
+				p.setUndecorated(true);
+				p.setVisible(true);
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		pane.add(mainLabel,9,0);
 
 		
@@ -130,22 +164,19 @@ public class choose extends JFrame implements Runnable {
 		
 		JLabel previousButton = new JLabel();
 		previousButton.setBounds(115, 450, 150, 50);
-		previousButton.setBackground(Color.CYAN);
-		previousButton.setOpaque(true);
 		previousButton.addMouseListener(new previous());
+		previousButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/previous.png")));
 		pane.add(previousButton);
 		
 		JLabel chooseButton = new JLabel();
-		chooseButton.setBounds(390, 490, 215, 55);
-		chooseButton.setBackground(Color.BLACK);
-		chooseButton.setOpaque(true);
+		chooseButton.setBounds(433, 489, 150, 50);
+		chooseButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/choose.png")));
 		chooseButton.addMouseListener(new chooseThisMovie());
 		pane.add(chooseButton);
 		
 		JLabel nextButton = new JLabel();
 		nextButton.setBounds(725, 450, 150, 50);
-		nextButton.setBackground(Color.YELLOW);
-		nextButton.setOpaque(true);
+		nextButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/next.png")));
 		nextButton.addMouseListener(new next());
 		pane.add(nextButton);
 		getContentPane().add(pane);

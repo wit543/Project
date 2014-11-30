@@ -51,7 +51,7 @@ public class ChooseRound extends JFrame implements Runnable{
 		theaterListInner.setBounds(0, 0, 300, 600);;
 		theaterListInner.setSize(300, 600);
 		theaterListInner.setBackground(Color.GRAY);
-		theaterListInner.setMaximumSize(new Dimension(300,600));
+		theaterListInner.setMaximumSize(new Dimension(300, 580));
 		theaterListInner.setLayout(new BoxLayout(theaterListInner, BoxLayout.Y_AXIS));
 		
 		for(int i = 0;i<listOfRoundInEachTheater.size();i++){

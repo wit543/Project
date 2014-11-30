@@ -54,21 +54,21 @@ public static void initRound(){
 				new Time(11, 11, 11), movieList.get(0)));
 		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(1)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(2), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(2)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(3), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(3)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(4), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(4)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(5), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(5)));
 		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(6)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(2), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(7)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(3), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(8)));
-		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
+		roundList.add(new Round(theaterList.get(5), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(9)));
 		roundList.add(new Round(theaterList.get(1), new Time(5, 5, 5),
 				new Time(11, 11, 11), movieList.get(0)));
@@ -117,61 +117,61 @@ public static void initMoive(){
 				}
 			}
 		}
-		movieList.add(new Movie("a in a", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18, imageIconList.get(0),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("a in b", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(1),"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("a in c", 9.8,
+		movieList.add(new Movie("The Hunger Games", 7.2,
+				"When Katniss destroys the games, she goes to District 13 after District 12 is destroyed. She meets President Coin who convinces her to be the symbol of rebellion, while trying to save Peeta from the Capitol.",
+				13, imageIconList.get(0),  "With the Games now destroyed and in pieces, Katniss Everdeen, along with Gale, Finnick and Beetee, now end up in the so thought \"destroyed\" District 13. Under the leadership of President Coin and the advice of her friends, Katniss becomes the \"Mockingjay\" and the symbol of rebellion for the people. ", "  Adventure | Sci-Fi", 
+				new Day(21, 11, 14), "Francis Lawrence",
+				"When Katniss destroys the games, she goes to District 13 after District 12 is destroyed. She meets President Coin who convinces her to be the symbol of rebellion, while trying to save Peeta from the Capitol.", "english", new Time(
+						7380)));
+		movieList.add(new Movie("The Maze Runner", 7.2,
+				"Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow \"runners\" for a shot at escape.",
+				13,  imageIconList.get(1),"Thomas wakes up in an elevator, remembering nothing but his own name. He emerges into a world of about 60 teen boys who have learned to survive in a completely enclosed environment, subsisting on their own agriculture and supplies. A new boy arrives every 30 days. The original group has been in \"The Glade\" for two years, trying to find a way to escape through the Maze that surrounds their living space. They have begun to give up hope. Then a comatose girl arrives with a strange note, and their world begins to change. There are some great, fast-paced action scenes, particularly those involving the nightmarish Grievers who plague the boys.", " Action | Mystery | Sci-Fi",
+				new Day(19, 9, 14), "Wes Ball",
+				"Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow \"runners\" for a shot at escape.", "english", new Time(
+						12960)));
+		movieList.add(new Movie("1", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(2),"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("2", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(3),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("3", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(4),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("4", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(5),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("5", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(6),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("6", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(7),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("7", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(8),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",
 				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
 						1000000)));
-		movieList.add(new Movie("a in d", 9.8,
+		movieList.add(new Movie("8", 9.8,
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 				18,  imageIconList.get(9),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
 						10, 10, 10), "Steave Job",

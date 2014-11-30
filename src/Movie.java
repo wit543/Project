@@ -89,8 +89,8 @@ public class Movie implements Comparable {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public Time getDulation() {
-		return dulation;
+	public int getDulation() {
+		return dulation.getDuration();
 	}
 	public void setDulation(Time dulation) {
 		this.dulation = dulation;
