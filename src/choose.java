@@ -180,6 +180,48 @@ public class choose extends JFrame implements Runnable {
 		nextButton.addMouseListener(new next());
 		pane.add(nextButton);
 		getContentPane().add(pane);
+		
+		JLabel showTicket = new JLabel("");
+		showTicket.setOpaque(true);
+		showTicket.setBackground(Color.CYAN);
+		showTicket.setBounds(595, 518, 162, 70);
+		showTicket.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				for(int i=0;i<round.size();i++){
+				for(int j=0;j<round.get(i).getTicketList().size();j++	){
+					System.out.println(round.get(i).getTicketList().get(j).toString());
+				}
+				}
+			}
+		});
+		pane.add(showTicket);
 
 		
 
@@ -456,5 +498,4 @@ public class choose extends JFrame implements Runnable {
 		// TODO Auto-generated method stub
 		setVisible(true);
 	}
-	
 }

@@ -3,9 +3,14 @@ public class Ticket {
 	private String movieTitle, date, seatNumber, ID, theater, cinemaName;
 
 	private static int numberOfTicket = 1;
-	double price, discount;
-
+	private double price, discount;
+	private Round round;
+	private Movie movie;
+	private Seat seat;
 	Ticket(Movie movie, Round round, Seat seat) {
+		this.round=round;
+		this.movie=movie;
+		this.seat=seat;
 		//this.round=round;
 		this.movieTitle = movie.getTitle();
 		this.date = round.getCurrentDay().toString() + " "
@@ -20,10 +25,7 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [movieTitle=" + movieTitle + ", date=" + date
-				+ ", seatNumber=" + seatNumber + ", ID=" + ID + ", theater="
-				+ theater + ", cinemaName=" + cinemaName + ", price=" + price
-				+ ", discount=" + discount + "]";
+		return movie.getID()+"#"+round.getID()+"#"+seat.getPosition()[0]+"#"+seat.getPosition()[1]+"#"+seat.getPosition()[2];
 	}
 
 	

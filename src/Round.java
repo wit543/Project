@@ -31,7 +31,9 @@ public class Round implements Comparable {
 	public String getTheaterID() {
 		return theaterID;
 	}
-
+	public String getID(){
+		return ID;
+	}
 	public Day getCurrentDay() {
 		return currentDay;
 	}
@@ -260,10 +262,7 @@ public class Round implements Comparable {
 	@Override
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
-		if(movie.compareTo(((Round) o).getMovie())==0){
-			return theater.compareTo(((Round)o).getTheater());
-		}
-		return movie.compareTo(((Round) o).getMovie());
+		return this.ID.compareTo(((Round)o).ID);
 	}
 
 	public void payed(ArrayList<Seat> arrayList){
@@ -279,5 +278,5 @@ public class Round implements Comparable {
 
 		
 	}
-	
+
 }

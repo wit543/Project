@@ -27,7 +27,10 @@ public class main {
 		ArrayList<Round> newRound = sortForMovie(roundList);
 	choose c = new choose(movieList,roundList);
 	c.run();
-
+	for(int i=0;i<roundList.size();i++){
+		System.out.println(roundList.get(i).getID()+" |"+roundList.get(i).toString());
+		System.out.println(Arrays.toString(ArrayOfRoundList.get(i)));
+	}
 	}
 		
 public static void innitAll(){
@@ -80,20 +83,20 @@ public static void initTheater(){
 	readFromTextTheaterList();	
 	}
 	else{
-		theaterList.add(new Theater(new int[] { 5, 10, 1 }, new int[]{10,8,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"Normal","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"IMAX","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "normal", "normal", "normal" },cinemaName,"3D","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"2D","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"1D","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"vintage","src\\images\\imax.png"));
-		theaterList.add(new Theater(new int[] { 3, 3, 2 },  new int[]{10,10,5}, 3, new double[] {
-				1, 2, 3 }, new String[] { "a", "b", "c" },cinemaName,"111111111111111","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 5, 1, 1 }, new int[]{5,5,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"Normal","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 1, 1, 5 },  new int[]{5,5,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"enigma","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 1, 1, 3 },  new int[]{1,1,10}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"3D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 1, 1, 2 },  new int[]{2,1,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"2D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 1, 5, 3 },  new int[]{2,1,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"1D","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 2, 3, 5 },  new int[]{1,1,1}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"vintage","src\\images\\imax.png"));
+		theaterList.add(new Theater(new int[] { 3, 2, 5 },  new int[]{4,1,5}, 3, new double[] {
+				1, 2, 3 }, new String[] { "normal", "special", "honeymoon"  },cinemaName,"IMAX","src\\images\\imax.png"));
 		writeToTextTheaterList();
 	}
 }
@@ -129,56 +132,68 @@ public static void initMoive(){
 				new Day(19, 9, 14), "Wes Ball",
 				"Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow \"runners\" for a shot at escape.", "english", new Time(
 						12960)));
-		movieList.add(new Movie("1", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(2),"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("2", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(3),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("3", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(4),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("4", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(5),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("5", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(6),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("6", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(7),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("7", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(8),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
-		movieList.add(new Movie("8", 9.8,
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-				18,  imageIconList.get(9),  "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "action", new Day(
-						10, 10, 10), "Steave Job",
-				"ccccccccccccccccccccccccccccccccccccccc", "english", new Time(
-						1000000)));
+		movieList.add(new Movie("The Hobbit: The Battle of the Five Armies", 9.8,
+				"Bilbo and Company are forced to be engaged in a war against an array of combatants and keeping the terrifying Smaug from acquiring a kingdom of treasure. and obliterating all of Middle-Earth.",
+				13,  imageIconList.get(2),"Bilbo and Company are forced to be engaged in a war against an array of combatants and keeping the terrifying Smaug from acquiring a kingdom of treasure. and obliterating all of Middle-Earth.", " Adventure | Fantasy ", 
+				new Day(17, 12, 14), "Peter Jackson",
+				"Bilbo and Company are forced to be engaged in a war against an array of combatants and keeping the terrifying Smaug from acquiring a kingdom of treasure. and obliterating all of Middle-Earth.", "english", new Time(
+						10140)));
+		movieList.add(new Movie("Interstellar", 9.8,
+				"A team of explorers travel through a wormhole in an attempt to find a potentially habitable planet that will sustain humanity.",
+				13,  imageIconList.get(3),  "In the near future, Earth has been devastated by drought and famine, causing a scarcity in food and extreme changes in climate. When humanity is facing extinction, a mysterious rip in the space-time continuum is discovered, giving mankind the opportunity to widen its lifespan. A group of explorers must travel beyond our solar system in search of a planet that can sustain life. The crew of the Endurance are required to think bigger and go further than any human in history as they embark on an interstellar voyage into the unknown. Coop, the pilot of the Endurance, must decide between seeing his children again and the future of the human race. ", " Adventure | Sci-Fi",
+				new Day(7,11,14), "Christopher Nolan",
+				"A team of explorers travel through a wormhole in an attempt to find a potentially habitable planet that will sustain humanity.", "english", new Time(
+						10140)));
+		movieList.add(new Movie("Star Wars: Episode I - The Phantom Menace ", 6.6,
+				"Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to reclaim their old glory.",
+				0,  imageIconList.get(4),  "The evil Trade Federation, led by Nute Gunray is planning to take over the peaceful world of Naboo. Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi are sent to confront the leaders. But not everything goes to plan. The two Jedi escape, and along with their new Gungan friend, Jar Jar Binks head to Naboo to warn Queen Amidala, but droids have already started to capture Naboo and the Queen is not safe there. Eventually, they land on Tatooine, where they become friends with a young boy known as Anakin Skywalker. Qui-Gon is curious about the boy, and sees a bright future for him. The group must now find a way of getting to Coruscant and to finally solve this trade dispute, but there is someone else hiding in the shadows. Are the Sith really extinct? Is the Queen really who she says she is? And what's so special about this young boy?", " Action | Adventure", 
+				new Day(19, 5, 99), "George Lucas",
+				"Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to reclaim their old glory.", "english", 
+				new Time(8160)));
+		movieList.add(new Movie("Star Wars: Episode II - Attack of the Clones", 6.8,
+				"Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé, while Obi-Wan investigates an assassination attempt on the Senator and discovers a secret clone army crafted for the Jedi.",
+				0,  imageIconList.get(5),  "Ten years after the 'Phantom Menace' threatened the planet Naboo, Padmé Amidala is now a Senator representing her homeworld. A faction of political separatists, led by Count Dooku, attempts to assassinate her. There are not enough Jedi to defend the Republic against the threat, so Chancellor Palpatine enlists the aid of Jango Fett, who promises that his army of clones will handle the situation. Meanwhile, Obi-Wan Kenobi continues to train the young Jedi Anakin Skywalker, who fears that the Jedi code will forbid his growing romance with Amidala.", "  Action | Adventure", new Day(
+						16, 5, 02), "George Lucas",
+				"Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé, while Obi-Wan investigates an assassination attempt on the Senator and discovers a secret clone army crafted for the Jedi.", "english", new Time(
+						8520)));
+		movieList.add(new Movie("Star Wars: Episode III - Revenge of the Sith ", 7.7,
+				"As the Clone Wars near an end, the Sith Lord Darth Sidious steps out of the shadows, at which time Anakin succumbs to his emotions, becoming Darth Vader and putting his relationships with Obi-Wan and Padme at risk.",
+				13,  imageIconList.get(6),  "It is three years after the start of the Clone Wars. The leader of the droid army, General Grievous, has captured Chancellor Palpatine on board his ship, the Invisible Hand. Jedi Master Obi-Wan Kenobi and Jedi Knight Anakin Skywalker must fly through Coruscant safely, and enter the Invisible Hand so that they can rescue the captive Chancellor. Just when Palpatine is about to be released, Count Dooku shows up. Obi-Wan and Anakin both battle it out with him, but Obi-Wan ends up unconscious. Anakin slices off his head and kills him. Anakin carries Obi-Wan, and Palpatine follows him. They meet General Grievous face to face, and Anakin tries to fly the last half of the ship so that they can safely land on Coruscant. Later, Palpatine starts acting strange, constantly manipulating Anakin into believing that the Jedi Council is against him. Eventually, it is found out that he is the Dark Lord of the Sith. Jedi Master Mace Windu fights him, along with three other Jedi that accompany Windu. ...", "  Action | Adventure | Fantasy", new Day(
+						19, 5, 05), "George Lucas",
+				"As the Clone Wars near an end, the Sith Lord Darth Sidious steps out of the shadows, at which time Anakin succumbs to his emotions, becoming Darth Vader and putting his relationships with Obi-Wan and Padme at risk.", "english", new Time(
+						8400)));
+		movieList.add(new Movie("Star Wars: Episode IV - A New Hope", 8.7,
+				"Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.",
+				0,  imageIconList.get(7),  "A young boy from Tatooine sets out on an adventure with an old Jedi named Obi-Wan Kenobi as his mentor to save Princess Leia from the ruthless Darth Vader and Destroy the Death Star built by the Empire which has the power to destroy the entire galaxy.", "  Action | Adventure | Fantasy ", new Day(
+						25, 5, 77), "George Lucas",
+				"Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.", "english", new Time(
+						7260)));
+		movieList.add(new Movie("Star Wars: Episode V - The Empire Strikes Back", 8.8,
+				"After the rebels have been brutally overpowered by the Empire on their newly established base, Luke Skywalker takes advanced Jedi training with Master Yoda, while his friends are pursued by Darth Vader as part of his plan to capture Luke.",
+				0,  imageIconList.get(8),  "Fleeing the evil Galactic Empire, the Rebels abandon their new base in an assault with the Imperial AT-AT walkers on the ice world of Hoth. Princess Leia, Han Solo, Chewbacca and the droid C-3PO escape in the Millennium Falcon, but are later captured by Darth Vader on Bespin. Meanwhile, Luke Skywalker and the droid R2-D2 follows Obi-Wan Kenobi's posthumous command, and receives Jedi training from Master Yoda on the swamp world of Dagobah. Will Skywalker manage to rescue his friends from the Dark Lord?", "  Action | Adventure | Fantasy", new Day(
+						24, 6, 80), " Irvin Kershner",
+				"After the rebels have been brutally overpowered by the Empire on their newly established base, Luke Skywalker takes advanced Jedi training with Master Yoda, while his friends are pursued by Darth Vader as part of his plan to capture Luke.", "english", new Time(
+						7440)));
+		movieList.add(new Movie("Star Wars: Episode VI - Return of the Jedi", 8.4,
+				"After rescuing Han Solo from the palace of Jabba the Hutt, the rebels attempt to destroy the second Death Star, while Luke struggles to make Vader shake off of the dark side of the Force.",
+				0,  imageIconList.get(9),  "Darth Vader and the Empire are building a new, indestructible Death Star. Meanwhile, Han Solo has been imprisoned, and Luke Skywalker has sent R2-D2 and C-3PO to try and free him. Princess Leia - disguised as a bounty hunter - and Chewbacca go along as well. The final battle takes place on the moon of Endor, with its natural inhabitants, the Ewoks, lending a hand to the Rebels. Will Darth Vader and the Dark Side overcome the Rebels and take over the universe?", "Action | Adventure | Fantasy ", new Day(
+						25, 5, 83), "Steave Job",
+				"After rescuing Han Solo from the palace of Jabba the Hutt, the rebels attempt to destroy the second Death Star, while Luke struggles to make Vader shake off of the dark side of the Force.", "english", new Time(
+						8040)));
 		writeToTextMovieList();
 		
+	}
+}
+public static void readFromTextTicketList(){
+	File file = new File("src\\data\\round.txt");
+	
+}
+public static void writeToTextTicketList(){
+	File file = new File("src\\data\\round.txt");
+	for(int i=0;i<roundList.size();i++){
+		for(int j=0;j<roundList.get(i).getTicketList().size();j++	){
+			System.out.println(roundList.get(i).getTicketList().get(j).toString());
+		}
 	}
 }
 public static void readFromTextRoundList(){
@@ -188,7 +203,10 @@ public static void readFromTextRoundList(){
 		if(file.exists()){
 			Scanner readRound = new Scanner(file);
 			while (readRound.hasNext()){
-				ArrayOfRoundList.add(readRound.nextLine().split("#"));
+				String[] input = readRound.nextLine().split("#");
+				System.out.println(Arrays.toString(input)+"   "+ArrayOfRoundList.size());
+				ArrayOfRoundList.add(input);
+				Collections.sort(roundList);
 				roundList.add(new Round(theaterList.get(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[0])), new Time(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[0]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[1]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[1].split(":")[2])), new Time(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[0]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[1]),Integer.parseInt( ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[2].split(":")[2])), movieList.get(Integer.parseInt(ArrayOfRoundList.get(ArrayOfRoundList.size()-1)[3])-1)));
 			}
 			readRound.close();
@@ -201,6 +219,17 @@ public static void readFromTextRoundList(){
 	for(int i=0;i<roundList.size();i++){
 		System.out.println(roundList.get(i));
 	}
+//	for (int k = 0; k < roundList.size()-1; k++) {
+//		for (int i = 0; i < roundList.size() - 1-k; i++) {
+//
+//			if (Integer.parseInt(roundList.get(i).getID()) >Integer.parseInt( roundList.get(i+1).getID())) {
+//				Round  temp = roundList.get(i);
+//				arr[i] = arr[i + 1];
+//				arr[i + 1] = temp;
+//
+//			}
+//		}
+
 	for(int i =0;i<ArrayOfRoundList.size();i++){
 		System.out.println("000000000000000000000000000");
 		System.out.println(Arrays.toString(ArrayOfRoundList.get(i)));

@@ -119,9 +119,12 @@ public class Seat {
 		if (type.equals("normal")) {
 			return 0;
 		}
-		if (type.equals("honeymoon"))
+		if (type.equals("special")) {
 			return 1;
-		return -1;
+		}
+		if (type.equals("honeymoon"))
+			return 2;
+		return 0;
 	}
 
 	public void setSeatUnavailable() {
